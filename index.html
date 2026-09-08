@@ -969,7 +969,303 @@
       .faq-a{padding-right:35px}
     }
 
+  
+    /* V6 — warmer travel-editorial art direction */
+    :root{
+      --ink:#10110f;
+      --cream:#f2eedb;
+      --cream-2:#e8e0c7;
+      --orange:#ed5a26;
+      --orange-soft:#f57a45;
+      --green:#0b3d38;
+      --green-deep:#072e2b;
+      --sand:#cabd98;
+      --text:#f2eedb;
+      --muted:#afa58e;
+      --faint:#7d7462;
+      --line:rgba(242,238,219,.15);
+      --line-strong:rgba(242,238,219,.30);
+      --accent:var(--orange);
+      --paper:var(--cream);
+      --serif:"Bodoni Moda", Georgia, "Times New Roman", serif;
+      --sans:"Manrope", Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    body{
+      background:var(--ink);
+      color:var(--text);
+      font-family:var(--sans);
+    }
+
+    body::before{opacity:.13}
+    body::after{box-shadow:inset 0 0 170px rgba(0,0,0,.45)}
+
+    /* Global title language */
+    h1,h2,h3,.brand,.count-num,.dictator-name,.faq-q,.meeting-address{
+      font-family:var(--serif)!important;
+      font-weight:400!important;
+    }
+
+    h2.section-title{
+      font-size:clamp(3rem,7.6vw,7rem);
+      line-height:.83;
+      letter-spacing:-.065em;
+      text-transform:none;
+    }
+
+    .section-kicker{
+      font-family:var(--sans);
+      font-weight:600;
+      letter-spacing:.25em;
+    }
+    .section-kicker::before{background:currentColor}
+
+    /* Login: nearly black + orange/cream */
+    #gate{
+      background:
+        radial-gradient(circle at 70% 22%,rgba(237,90,38,.10),transparent 26%),
+        linear-gradient(180deg,#12120f 0%,#0a0b09 100%);
+    }
+    #gate::before{
+      color:rgba(242,238,219,.025);
+      font-family:var(--serif);
+      font-weight:400;
+    }
+    .brand{
+      color:var(--cream);
+      font-size:clamp(4.2rem,11vw,9.4rem);
+      letter-spacing:-.075em;
+    }
+    .restricted{
+      border-color:var(--orange);
+      color:var(--orange);
+    }
+    .hint{color:#b8af98}
+    .digit:focus{
+      border-color:var(--orange);
+      background:rgba(237,90,38,.055);
+      box-shadow:0 0 0 3px rgba(237,90,38,.05);
+    }
+    .unlock::before{background:var(--orange)}
+    .unlock:hover{border-color:var(--orange);color:var(--cream)}
+    .overlay-card .small{color:var(--orange)}
+
+    /* Destination hero: cream typography over photo + orange travel marker */
+    .reveal{
+      background-position:center 46%;
+    }
+    .reveal::after{
+      background:
+        linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.12) 45%,rgba(0,0,0,.72)),
+        linear-gradient(90deg,rgba(0,0,0,.20),transparent 50%);
+    }
+    .reveal .section-kicker{
+      color:var(--cream);
+    }
+    .reveal .section-kicker::before{background:var(--orange)}
+    .reveal h1{
+      color:var(--cream);
+      font-size:clamp(5.3rem,14vw,12.5rem);
+      line-height:.72;
+      letter-spacing:-.085em;
+      text-shadow:0 22px 70px rgba(0,0,0,.38);
+    }
+    .reveal-subplace{
+      border-top-color:var(--orange);
+      color:var(--cream);
+    }
+    .dates{
+      color:var(--cream);
+    }
+    .reveal.numbered::before{color:var(--orange)}
+
+    /* Countdown: full light editorial panel */
+    #site > section:nth-of-type(2){
+      background:var(--cream);
+      color:var(--ink);
+      border-top:0;
+    }
+    #site > section:nth-of-type(2) .section-kicker{
+      color:var(--orange);
+    }
+    #site > section:nth-of-type(2) .countdown-grid{
+      border-color:rgba(16,17,15,.26);
+    }
+    #site > section:nth-of-type(2) .count-box{
+      border-color:rgba(16,17,15,.14);
+    }
+    #site > section:nth-of-type(2) .count-num{
+      color:var(--green);
+      font-size:clamp(4rem,8vw,7.2rem);
+    }
+    #site > section:nth-of-type(2) .count-label{
+      color:rgba(16,17,15,.56);
+    }
+    #site > section:nth-of-type(2).numbered::before{
+      color:rgba(16,17,15,.35);
+    }
+
+    /* Meeting: deep petrol */
+    #site > section:nth-of-type(3){
+      background:var(--green);
+      color:var(--cream);
+    }
+    #site > section:nth-of-type(3) .section-kicker{color:var(--orange-soft)}
+    .meeting-card{
+      border-color:rgba(242,238,219,.22);
+      background:
+        linear-gradient(135deg,rgba(242,238,219,.045),transparent 52%);
+    }
+    .meeting-address{
+      color:var(--cream);
+      font-size:clamp(2.7rem,5vw,5.2rem);
+      letter-spacing:-.05em;
+    }
+    .meeting-lock{color:var(--orange-soft)}
+
+    /* Program: warm paper with huge dark titles */
+    .program-section{
+      background:var(--cream);
+      color:var(--ink);
+    }
+    .program-section .section-kicker{color:var(--orange)}
+    .program-section h2.section-title{color:var(--green)}
+    .program-section .day{
+      color:var(--ink);
+    }
+    .program-section .day-date{color:var(--orange)}
+    .program-section .day h3{
+      color:var(--green);
+      font-size:clamp(2.7rem,4.5vw,4.4rem);
+      line-height:.9;
+      letter-spacing:-.055em;
+    }
+    .program-section .day p{
+      color:rgba(16,17,15,.70);
+      border-top-color:rgba(16,17,15,.17);
+    }
+    .program-section .day-visual{
+      filter:saturate(.88) contrast(1.04);
+    }
+    .program-section .day-visual::after{
+      border-color:rgba(16,17,15,.15);
+    }
+    .program-section .day-visual span{
+      color:var(--cream);
+      font-size:3rem;
+    }
+    .program-section.numbered::before{color:rgba(16,17,15,.32)}
+
+    /* Secret: orange statement block */
+    .secret-section{
+      background:var(--orange);
+      color:var(--ink);
+    }
+    .secret-section::after{
+      color:rgba(16,17,15,.055);
+    }
+    .secret-section.numbered::before{color:rgba(16,17,15,.42)}
+    .secret-mark{
+      border-color:var(--ink);
+      color:var(--ink);
+      width:82px;height:82px;
+    }
+    .stamp{
+      border-color:var(--ink);
+      color:var(--ink);
+      font-size:1.35rem;
+    }
+    .redacted{background:var(--ink)}
+    .classified-note{color:rgba(16,17,15,.66)}
+
+    /* Packing: paper */
+    #site > section:nth-of-type(6){
+      background:var(--cream-2);
+      color:var(--ink);
+    }
+    #site > section:nth-of-type(6) .section-kicker{color:var(--orange)}
+    #site > section:nth-of-type(6) h2.section-title{color:var(--green)}
+    #site > section:nth-of-type(6) .packing{
+      border-color:rgba(16,17,15,.28);
+    }
+    #site > section:nth-of-type(6) .packing-item{
+      border-color:rgba(16,17,15,.14);
+    }
+    #site > section:nth-of-type(6) .packing-item span:first-of-type{
+      color:var(--green);
+    }
+    #site > section:nth-of-type(6) .packing-item span:last-child{
+      color:rgba(16,17,15,.55);
+    }
+    #site > section:nth-of-type(6) .pack-icon{
+      color:var(--orange)!important;
+    }
+    #site > section:nth-of-type(6).numbered::before{color:rgba(16,17,15,.32)}
+
+    /* Dictators: deep green */
+    #site > section:nth-of-type(7){
+      background:var(--green-deep);
+    }
+    #site > section:nth-of-type(7) .section-kicker{color:var(--orange-soft)}
+    #site > section:nth-of-type(7) h2.section-title{color:var(--cream)}
+    .dictator{
+      border-color:rgba(242,238,219,.18);
+      background:rgba(242,238,219,.025);
+    }
+    .photo-placeholder{
+      background:
+        linear-gradient(160deg,rgba(237,90,38,.07),transparent 45%),
+        #0a2927;
+    }
+    .dictator-info::before{color:var(--orange-soft)}
+    .dictator-name{
+      color:var(--cream);
+      font-size:2.25rem;
+    }
+
+    /* FAQ: cream editorial ending */
+    #site > section:nth-of-type(8){
+      background:var(--cream);
+      color:var(--ink);
+    }
+    #site > section:nth-of-type(8) .section-kicker{color:var(--orange)}
+    #site > section:nth-of-type(8) h2.section-title{color:var(--green)}
+    #site > section:nth-of-type(8) .faq{
+      border-color:rgba(16,17,15,.25);
+    }
+    #site > section:nth-of-type(8) .faq-item{
+      border-color:rgba(16,17,15,.14);
+    }
+    #site > section:nth-of-type(8) .faq-q{
+      color:var(--green);
+      font-size:clamp(1.7rem,3vw,2.7rem);
+      letter-spacing:-.035em;
+    }
+    #site > section:nth-of-type(8) .faq-plus{color:var(--orange)}
+    #site > section:nth-of-type(8) .faq-a{color:rgba(16,17,15,.70)}
+    #site > section:nth-of-type(8).numbered::before{color:rgba(16,17,15,.30)}
+
+    /* Small editorial accents */
+    .numbered::before{
+      font-family:var(--sans);
+      font-weight:600;
+      letter-spacing:.10em;
+    }
+
+    @media(max-width:800px){
+      h2.section-title{font-size:clamp(3.2rem,15vw,5.3rem)}
+      .reveal h1{font-size:clamp(4.8rem,19vw,7.6rem)}
+      .meeting-address{font-size:clamp(2.6rem,12vw,4rem)}
+      .program-section .day h3{font-size:3.2rem}
+      .count-num{font-size:4rem!important}
+    }
+
   </style>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 
 </head>
 <body>
