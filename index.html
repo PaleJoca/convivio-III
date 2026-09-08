@@ -1452,78 +1452,6 @@
       .orbit-ring-3{width:330px;height:330px}
     }
 
-
-/* V8 */
-.hero-title-lockup{position:absolute;left:0;bottom:72px;z-index:3;color:var(--cream);font-family:var(--serif);line-height:.72;text-transform:uppercase}
-.hero-viana{font-size:clamp(6rem,15vw,13rem);letter-spacing:-.09em}
-.hero-do{position:absolute;left:58%;top:38%;font:600 clamp(.7rem,1.2vw,1rem)/1 var(--sans);letter-spacing:.42em;color:var(--orange)}
-.hero-castelo{font-size:clamp(4.6rem,12vw,10.6rem);letter-spacing:-.08em;margin-left:11%}
-.hero-meta{position:absolute;left:0;top:34px;z-index:3;font-size:.62rem;letter-spacing:.28em;font-weight:600;color:var(--cream)}
-.hero-place{position:absolute;right:0;bottom:88px;z-index:3;padding-top:9px;border-top:1px solid var(--orange);font-size:.56rem;letter-spacing:.26em;font-weight:600;color:var(--cream)}
-.hero-date{position:absolute;right:0;top:50%;z-index:3;writing-mode:vertical-rl;transform:translateY(-50%) rotate(180deg);font-size:.54rem;letter-spacing:.25em;color:var(--cream)}
-.hero-stamp{position:absolute;right:17%;top:25%;z-index:3;width:70px;height:70px;border:1px solid rgba(242,238,219,.7);border-radius:50%;display:grid;place-items:center;font:400 1.4rem var(--serif);color:var(--cream);transform:rotate(-8deg);background:rgba(0,0,0,.06);backdrop-filter:blur(2px)}
-
-.destination-info{background:var(--cream);color:var(--ink)}
-.destination-info .section-kicker{color:var(--orange)}
-.destination-info .section-title{color:var(--blue-deep)}
-.countdown-panel{border-top:1px solid rgba(16,17,15,.25);border-bottom:1px solid rgba(16,17,15,.25);padding-top:18px;margin-bottom:38px}
-.panel-label{font-size:.56rem;letter-spacing:.22em;font-weight:600;color:var(--orange);margin-bottom:14px}
-.destination-info .countdown-grid{border:0}
-.destination-info .count-box{border-color:rgba(16,17,15,.14)}
-.destination-info .count-num{color:var(--blue-deep)}
-.destination-info .count-label{color:rgba(16,17,15,.52)}
-.destination-info .meeting-layout{grid-template-columns:minmax(280px,.72fr) 1.28fr}
-.destination-info .location-orbit{background:radial-gradient(circle at center,rgba(49,95,115,.10),transparent 44%),#dfe4df;border-color:rgba(16,17,15,.14)}
-.destination-info .location-orbit::before,.destination-info .orbit-ring{border-color:rgba(49,95,115,.28)}
-.destination-info .orbit-label{color:rgba(13,39,50,.55)}
-.destination-info .meeting-card{border-color:rgba(16,17,15,.15);background:linear-gradient(135deg,rgba(49,95,115,.035),transparent 50%);color:var(--ink)}
-.destination-info .meeting-address{color:var(--blue-deep)}
-.destination-info .meeting-date{color:rgba(16,17,15,.60)}
-.destination-info .address-unlock{border-top-color:rgba(16,17,15,.14)}
-.destination-info .address-countdown div{border-left-color:rgba(16,17,15,.14)}
-.destination-info .address-countdown strong{color:var(--blue-deep)}
-.destination-info .address-countdown span,.destination-info .address-status{color:rgba(16,17,15,.48)}
-
-.compact-brinde .classified{padding-top:58px;padding-bottom:58px}
-.compact-brinde .secret-mark{width:58px;height:58px;font-size:1.1rem;margin-bottom:16px}
-.compact-brinde .stamp{margin-bottom:14px}
-.compact-brinde .brinde-reveal{font-size:clamp(2.2rem,4.8vw,4.2rem);margin-top:12px}
-.compact-brinde .classified-note{margin-top:12px}
-
-@media(max-width:800px){
-  .reveal{min-height:80vh;background-size:contain!important;background-repeat:no-repeat!important;background-position:center 18%!important;background-color:#0b1012}
-  .reveal::after{background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.12) 42%,rgba(10,14,16,.94) 73%,rgba(10,14,16,1) 100%)}
-  .reveal .section-inner{min-height:80vh;width:min(100% - 28px,1240px)}
-  .hero-title-lockup{bottom:48px;width:100%}
-  .hero-viana{font-size:clamp(4.5rem,21vw,7rem)}
-  .hero-castelo{font-size:clamp(3.5rem,17vw,5.7rem);margin-left:7%}
-  .hero-do{left:55%;top:35%;font-size:.56rem}
-  .hero-meta{top:18px;font-size:.5rem}
-  .hero-place{left:0;right:auto;bottom:18px;font-size:.48rem}
-  .hero-date{right:2px;top:47%;font-size:.46rem}
-  .hero-stamp{width:52px;height:52px;right:8%;top:25%;font-size:.95rem}
-
-  .destination-info .countdown-grid{grid-template-columns:repeat(4,1fr)}
-  .destination-info .count-box{padding:18px 6px;border-bottom:0!important}
-  .destination-info .count-box:nth-child(2){border-right:1px solid rgba(16,17,15,.14)}
-  .destination-info .count-num{font-size:clamp(1.9rem,9vw,3.2rem)!important}
-  .destination-info .count-label{font-size:.46rem;letter-spacing:.1em}
-  .destination-info .meeting-layout{grid-template-columns:1fr;gap:16px}
-  .destination-info .location-orbit{min-height:245px}
-  .destination-info .meeting-card{min-height:0}
-
-  .program-section .days{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 2px 12px;scrollbar-width:none}
-  .program-section .days::-webkit-scrollbar{display:none}
-  .program-section .day{flex:0 0 82%;min-width:250px;scroll-snap-align:center;border:0;margin:0;padding-bottom:18px}
-  .program-section .day-visual{height:48vw;min-height:185px}
-
-  .compact-brinde .classified{padding-top:45px;padding-bottom:45px}
-
-  .faq-toggle{padding:18px 0}
-  .faq-q{font-size:1.3rem!important}
-  .faq-a{padding:0 28px 16px 0;font-size:.9rem}
-}
-
 </style>
 
 
@@ -1531,73 +1459,124 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 
+
+<style id="v9-overrides">
+.destination-stream{background:var(--cream);color:var(--ink)}
+.destination-stream .section-kicker{color:var(--orange)}
+.destination-stream .section-title{color:var(--blue-deep);margin-bottom:0}
+.destination-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:30px}
+.mini-countdown{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end;color:rgba(16,17,15,.62);font-size:.56rem;letter-spacing:.08em;text-transform:uppercase}
+.mini-countdown span{padding-left:10px;border-left:1px solid rgba(16,17,15,.18)}
+.mini-countdown strong{font-family:var(--serif);font-size:1.35rem;font-weight:400;color:var(--blue-deep);margin-right:4px}
+
+.destination-card{display:grid;grid-template-columns:1.05fr .95fr;min-height:340px;border-top:1px solid rgba(16,17,15,.2);border-bottom:1px solid rgba(16,17,15,.2)}
+.viana-map{position:relative;overflow:hidden;min-height:340px;background:radial-gradient(circle at 62% 44%,rgba(49,95,115,.10),transparent 25%),linear-gradient(145deg,#dce3e1 0%,#cbd8d8 55%,#bcc9c9 100%)}
+.viana-map:before{content:"";position:absolute;inset:0;opacity:.28;background-image:linear-gradient(rgba(49,95,115,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(49,95,115,.16) 1px,transparent 1px);background-size:42px 42px}
+.coast-shape{position:absolute;left:-10%;top:-10%;width:58%;height:120%;background:#a9c1ca;border-radius:0 48% 52% 0 / 0 38% 62% 0}
+.map-circle{position:absolute;left:58%;top:48%;width:145px;height:145px;border:1px solid rgba(237,90,38,.75);border-radius:50%;transform:translate(-50%,-50%)}
+.map-circle:after{content:"";position:absolute;inset:18px;border:1px solid rgba(237,90,38,.28);border-radius:50%}
+.map-dot{position:absolute;left:58%;top:48%;width:12px;height:12px;border-radius:50%;background:var(--orange);transform:translate(-50%,-50%);box-shadow:0 0 0 7px rgba(237,90,38,.12)}
+.map-name{position:absolute;left:58%;top:28%;transform:translateX(-50%);color:var(--blue-deep);font-size:.56rem;font-weight:600;letter-spacing:.22em;white-space:nowrap}
+.map-sub{position:absolute;left:58%;top:70%;transform:translateX(-50%);color:rgba(13,39,50,.56);font-size:.52rem;letter-spacing:.18em;white-space:nowrap}
+
+.destination-copy{display:flex;flex-direction:column;justify-content:center;padding:42px;background:#f1eddd}
+.small-label{margin-bottom:14px;color:var(--orange);font-size:.56rem;font-weight:600;letter-spacing:.22em}
+.destination-copy .meeting-address{margin:0 0 10px;color:var(--blue-deep)!important;font-size:clamp(2.5rem,5vw,4.8rem)}
+.destination-copy .meeting-date{color:rgba(16,17,15,.68)!important;max-width:420px}
+.destination-copy .address-status{margin-top:32px;color:rgba(16,17,15,.52)!important;font-size:.54rem;letter-spacing:.16em}
+
+.faq-section{background:var(--cream);color:var(--ink)}
+.faq-section .section-kicker{color:var(--orange)}
+.faq-section .section-title{color:var(--blue-deep)}
+.faq{border-bottom:1px solid rgba(16,17,15,.22)}
+.faq-item{border-top:1px solid rgba(16,17,15,.14);padding:0!important;display:block!important}
+.faq-item summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;padding:21px 0}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-q{color:var(--blue-deep)!important;font-family:var(--serif);font-size:clamp(1.35rem,2.5vw,2.1rem);font-weight:400}
+.faq-plus{color:var(--orange);font-family:var(--serif);font-size:1.8rem;transition:transform .2s ease}
+.faq-item[open] .faq-plus{transform:rotate(45deg)}
+.faq-a{margin:0!important;padding:0 42px 20px 0!important;color:rgba(16,17,15,.72)!important;line-height:1.6}
+
+@media(max-width:800px){
+  .destination-head{align-items:flex-start;flex-direction:column;margin-bottom:20px}
+  .mini-countdown{justify-content:flex-start;gap:9px}
+  .mini-countdown strong{font-size:1.15rem}
+  .destination-card{grid-template-columns:1fr}
+  .viana-map{min-height:220px}
+  .map-circle{width:105px;height:105px}
+  .destination-copy{padding:26px 22px}
+  .destination-copy .meeting-address{font-size:2.6rem}
+
+  .program-section .days{display:flex!important;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 2px 12px;scrollbar-width:none}
+  .program-section .days::-webkit-scrollbar{display:none}
+  .program-section .day{flex:0 0 82%;min-width:250px;scroll-snap-align:center;border:0!important;margin:0!important;padding-bottom:18px!important}
+
+  .faq-item summary{padding:16px 0}
+  .faq-q{font-size:1.25rem!important}
+  .faq-a{padding:0 24px 15px 0!important;font-size:.92rem}
+}
+</style>
+
 </head>
 <body>
   <div id="gate"><div class="gate-wrap"><div class="eyebrow">Dossier 003 · Acesso reservado</div><h1 class="brand">CONVÍVIO III</h1><div class="restricted">Acesso restrito</div><p class="hint">Sete peças. Sete números.</p><div class="code-row" id="codeRow" aria-label="Código de acesso com sete dígitos"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 1"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 2"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 3"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 4"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 5"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 6"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 7"></div><button class="unlock" id="unlockBtn">Desbloquear</button><div class="status" id="status"></div></div></div>
   <div id="accessOverlay"><div class="overlay-card"><div class="small">Código validado</div><h2>ACESSO AUTORIZADO</h2></div></div>
   <main id="site" class="hidden">
-    <section class="reveal numbered" data-no="01"><div class="section-inner">
-<div class="hero-meta">CONVÍVIO À D’ANTES III</div>
-<div class="hero-title-lockup" aria-label="Viana do Castelo">
-  <div class="hero-viana">VIANA</div>
-  <div class="hero-do">DO</div>
-  <div class="hero-castelo">CASTELO</div>
-</div>
-<div class="hero-place">VILA NOVA DE ANHA</div>
-<div class="hero-date">11—13 · SET · 2026</div>
-<div class="hero-stamp">III</div>
-</div></section>
+    <section class="reveal numbered" data-no="01"><div class="section-inner"><div class="section-kicker">Convívio à D’Antes III</div><h1>VIANA DO<br>CASTELO</h1><div class="reveal-subplace">Vila Nova de Anha</div><div class="dates">11 — 13 setembro 2026</div></div></section>
     
-<section class="numbered destination-info" data-no="02">
+<section class="numbered destination-stream" data-no="02">
   <div class="section-inner">
     <div class="section-kicker">Destino & encontro</div>
-    <h2 class="section-title">Até Viana.</h2>
-
-    <div class="countdown-panel">
-      <div class="panel-label">CONTAGEM DECRESCENTE</div>
-      <div class="countdown-grid">
-        <div class="count-box"><span class="count-num" id="days">000</span><span class="count-label">Dias</span></div>
-        <div class="count-box"><span class="count-num" id="hours">00</span><span class="count-label">Horas</span></div>
-        <div class="count-box"><span class="count-num" id="minutes">00</span><span class="count-label">Minutos</span></div>
-        <div class="count-box"><span class="count-num" id="seconds">00</span><span class="count-label">Segundos</span></div>
+    <div class="destination-head">
+      <h2 class="section-title">Viana do Castelo.</h2>
+      <div class="mini-countdown">
+        <span><strong id="days">000</strong> dias</span>
+        <span><strong id="hours">00</strong> horas</span>
+        <span><strong id="minutes">00</strong> min</span>
       </div>
     </div>
 
-    <div class="meeting-layout">
-      <div class="location-orbit" aria-hidden="true">
-        <div class="orbit-ring orbit-ring-2"></div>
-        <div class="orbit-ring orbit-ring-3"></div>
-        <div class="map-pin"><span></span></div>
-        <div class="orbit-label">VILA NOVA DE ANHA</div>
+    <div class="destination-card">
+      <div class="viana-map" aria-hidden="true">
+        <div class="coast-shape"></div>
+        <div class="map-circle"></div>
+        <div class="map-dot"></div>
+        <div class="map-name">VIANA DO CASTELO</div>
+        <div class="map-sub">VILA NOVA DE ANHA</div>
       </div>
 
-      <div class="meeting-card meeting-mystery">
-        <div>
-          <div class="panel-label">PONTO DE ENCONTRO</div>
-          <p class="meeting-address">Viana do Castelo.</p>
-          <p class="meeting-subplace">Vila Nova de Anha</p>
-          <p class="meeting-date">A localização exata continua sob sigilo.</p>
-        </div>
-        <div class="address-unlock">
-          <div class="address-label">ACESSO À MORADA</div>
-          <div class="address-countdown">
-            <div><strong id="addressDays">00</strong><span>dias</span></div>
-            <div><strong id="addressHours">00</strong><span>horas</span></div>
-            <div><strong id="addressMinutes">00</strong><span>min</span></div>
-            <div><strong id="addressSeconds">00</strong><span>seg</span></div>
-          </div>
-          <div class="address-status">BLOQUEADO ATÉ 11 SETEMBRO</div>
-        </div>
+      <div class="destination-copy">
+        <div class="small-label">PONTO DE ENCONTRO</div>
+        <p class="meeting-address">Vila Nova de Anha</p>
+        <p class="meeting-date">A morada exata será revelada no dia 11.</p>
+        <div class="address-status">LOCALIZAÇÃO CONFIRMADA · MORADA SOB SIGILO</div>
       </div>
     </div>
   </div>
 </section>
 
     <section class="numbered program-section" data-no="03"><div class="section-inner"><div class="section-kicker">Plano de operações</div><h2 class="section-title">Três dias. Um plano questionável.</h2><div class="days"><article class="day"><div class="day-visual visual-1"><span>01</span></div><div class="day-date">Sexta · 11</div><h3>Chegada</h3><p>Receção na casa</p><p>Jantar</p><p>Borracheira</p></article><article class="day"><div class="day-visual visual-2"><span>02</span></div><div class="day-date">Sábado · 12</div><h3>Recuperação</h3><p>Manhã — curar a borracheira</p><p>Tarde — atividade</p></article><article class="day"><div class="day-visual visual-3"><span>03</span></div><div class="day-date">Domingo · 13</div><h3>Missão final</h3><p>Acabar com as sobras</p></article></div></div></section>
-    <section class="numbered secret-section compact-brinde" data-no="04"><div class="section-inner classified"><div class="secret-mark">III</div><div class="stamp">Brinde</div><div class="brinde-reveal">Revelado no Convívio.</div><div class="classified-note">Até lá, permanece confidencial.</div></div></section>
+    <section class="numbered secret-section" data-no="04"><div class="section-inner classified"><div class="secret-mark">III</div><div class="stamp">Brinde</div><div class="brinde-reveal">Revelado no Convívio.</div><div class="classified-note">Até lá, permanece confidencial.</div></div></section>
     <section class="numbered" data-no="05"><div class="section-inner"><div class="section-kicker">O que levar</div><h2 class="section-title">Não te esqueças.</h2><div class="packing"><div class="packing-item"><span class="pack-icon">≈</span><span>Fato de banho</span><span>Obrigatório</span></div><div class="packing-item"><span class="pack-icon">▱</span><span>Toalha</span><span>Por razões óbvias</span></div><div class="packing-item"><span class="pack-icon">◇</span><span>Roupa para o fim de semana</span><span>Recomendado</span></div><div class="packing-item"><span class="pack-icon">✦</span><span>Produtos de higiene</span><span>Muito recomendado</span></div><div class="packing-item"><span class="pack-icon">⌁</span><span>Carregador</span><span>Útil</span></div><div class="packing-item"><span class="pack-icon">☼</span><span>Boa disposição</span><span>Não negociável</span></div></div></div></section>
     <section class="numbered" data-no="06"><div class="section-inner"><div class="section-kicker">Comissão 2026.</div><h2 class="section-title">O Regime</h2><div class="dictators"><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small>ARQ. III / CONFIDENCIAL</small></div><div class="dictator-info"><h3 class="dictator-name">O Juiz</h3><p><strong>Nome:</strong> por inserir</p><p><strong>Função:</strong> O Juiz</p><p><strong>Veredito:</strong> irrevogável</p></div></article><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small>ARQ. III / CONFIDENCIAL</small></div><div class="dictator-info"><h3 class="dictator-name">O Júri</h3><p><strong>Nome:</strong> por inserir</p><p><strong>Função:</strong> O Júri</p><p><strong>Decisão:</strong> maioritariamente suspeita</p></div></article><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small>ARQ. III / CONFIDENCIAL</small></div><div class="dictator-info"><h3 class="dictator-name">O Executor</h3><p><strong>Nome:</strong> por inserir</p><p><strong>Função:</strong> O Executor</p><p><strong>Recurso:</strong> não disponível</p></div></article></div></div></section>
-    <section class="numbered" data-no="07"><div class="section-inner" style="padding-bottom:110px"><div class="section-kicker">Perguntas frequentes · Respostas duvidosas</div><h2 class="section-title">FAQ</h2><div class="faq"><div class="faq-item"><button class="faq-toggle" type="button"><span class="faq-q">Há piscina?</span><span class="faq-plus">+</span></button><div class="faq-answer"><p class="faq-a">Sim.</p></div></div><div class="faq-item"><button class="faq-toggle" type="button"><span class="faq-q">É preciso levar toalha?</span><span class="faq-plus">+</span></button><div class="faq-answer"><p class="faq-a">Se não for para a piscina, ao menos para te limpares depois do banho, porco.</p></div></div><div class="faq-item"><button class="faq-toggle" type="button"><span class="faq-q">Posso desistir?</span><span class="faq-plus">+</span></button><div class="faq-answer"><p class="faq-a">Não.</p></div></div><div class="faq-item"><button class="faq-toggle" type="button"><span class="faq-q">Vai correr bem?</span><span class="faq-plus">+</span></button><div class="faq-answer"><p class="faq-a">Estatisticamente desconhecido.</p></div></div><div class="faq-item"><button class="faq-toggle" type="button"><span class="faq-q">Posso saber qual é o BRINDE?</span><span class="faq-plus">+</span></button><div class="faq-answer"><p class="faq-a">Será revelado no Convívio.</p></div></div><div class="faq-item"><button class="faq-toggle" type="button"><span class="faq-q">Quem tomou estas decisões?</span><span class="faq-plus">+</span></button><div class="faq-answer"><p class="faq-a">O Regime.</p></div></div><div class="faq-item"><button class="faq-toggle" type="button"><span class="faq-q">Posso apresentar uma reclamação?</span><span class="faq-plus">+</span></button><div class="faq-answer"><p class="faq-a">Podes.</p></div></div><div class="faq-item"><button class="faq-toggle" type="button"><span class="faq-q">Vai servir para alguma coisa?</span><span class="faq-plus">+</span></button><div class="faq-answer"><p class="faq-a">Não.</p></div></div></div></div></section>
+    
+<section class="numbered faq-section" data-no="07">
+  <div class="section-inner" style="padding-bottom:110px">
+    <div class="section-kicker">Perguntas frequentes · Respostas duvidosas</div>
+    <h2 class="section-title">FAQ</h2>
+    <div class="faq">
+      <details class="faq-item"><summary><span class="faq-q">Há piscina?</span><span class="faq-plus">+</span></summary><p class="faq-a">Sim.</p></details>
+      <details class="faq-item"><summary><span class="faq-q">É preciso levar toalha?</span><span class="faq-plus">+</span></summary><p class="faq-a">Se não for para a piscina, ao menos para te limpares depois do banho, porco.</p></details>
+      <details class="faq-item"><summary><span class="faq-q">Posso desistir?</span><span class="faq-plus">+</span></summary><p class="faq-a">Não.</p></details>
+      <details class="faq-item"><summary><span class="faq-q">Vai correr bem?</span><span class="faq-plus">+</span></summary><p class="faq-a">Estatisticamente desconhecido.</p></details>
+      <details class="faq-item"><summary><span class="faq-q">Posso saber qual é o BRINDE?</span><span class="faq-plus">+</span></summary><p class="faq-a">Será revelado no Convívio.</p></details>
+      <details class="faq-item"><summary><span class="faq-q">Quem tomou estas decisões?</span><span class="faq-plus">+</span></summary><p class="faq-a">O Regime.</p></details>
+      <details class="faq-item"><summary><span class="faq-q">Posso apresentar uma reclamação?</span><span class="faq-plus">+</span></summary><p class="faq-a">Podes.</p></details>
+      <details class="faq-item"><summary><span class="faq-q">Vai servir para alguma coisa?</span><span class="faq-plus">+</span></summary><p class="faq-a">Não.</p></details>
+    </div>
+  </div>
+</section>
+
   </main>
 <script>
 const ACCESS_CODE="5831947",STORAGE_KEY="convivioIII_access";const gate=document.getElementById("gate"),site=document.getElementById("site"),overlay=document.getElementById("accessOverlay"),statusEl=document.getElementById("status"),inputs=[...document.querySelectorAll(".digit")],unlockBtn=document.getElementById("unlockBtn"),codeRow=document.getElementById("codeRow");const params=new URLSearchParams(window.location.search);if(params.get("reset")==="1"){localStorage.removeItem(STORAGE_KEY);history.replaceState({},"",window.location.pathname)}function showSite(skipOverlay=false){gate.classList.add("hidden");site.classList.remove("hidden");requestAnimationFrame(()=>site.classList.add("visible"));if(!skipOverlay){overlay.classList.add("show");setTimeout(()=>{overlay.classList.remove("show");window.scrollTo({top:0,behavior:"instant"})},1150)}}if(localStorage.getItem(STORAGE_KEY)==="granted"){showSite(true)}else{setTimeout(()=>inputs[0].focus(),300)}inputs.forEach((input,index)=>{input.addEventListener("input",()=>{input.value=input.value.replace(/\D/g,"").slice(0,1);statusEl.textContent="";statusEl.className="status";if(input.value&&index<inputs.length-1)inputs[index+1].focus()});input.addEventListener("keydown",e=>{if(e.key==="Backspace"&&!input.value&&index>0)inputs[index-1].focus();if(e.key==="Enter")validateCode()});input.addEventListener("paste",e=>{const pasted=(e.clipboardData||window.clipboardData).getData("text").replace(/\D/g,"").slice(0,7);if(pasted.length){e.preventDefault();pasted.split("").forEach((n,i)=>{if(inputs[i])inputs[i].value=n});inputs[Math.min(pasted.length,7)-1].focus()}})});function validateCode(){const entered=inputs.map(i=>i.value).join("");if(entered.length!==7){statusEl.textContent="Introduz os sete números.";statusEl.className="status error";codeRow.classList.remove("shake");void codeRow.offsetWidth;codeRow.classList.add("shake");return}if(entered===ACCESS_CODE){localStorage.setItem(STORAGE_KEY,"granted");statusEl.textContent="Acesso autorizado.";statusEl.className="status ok";setTimeout(()=>showSite(false),250)}else{statusEl.textContent="Acesso negado · Código incorreto";statusEl.className="status error";codeRow.classList.remove("shake");void codeRow.offsetWidth;codeRow.classList.add("shake");inputs.forEach(i=>i.value="");inputs[0].focus()}}unlockBtn.addEventListener("click",validateCode);const targetDate=new Date("2026-09-11T00:00:00");function updateCountdown(){let diff=targetDate-new Date();if(diff<=0){["days","hours","minutes","seconds"].forEach(id=>document.getElementById(id).textContent="00");return}const days=Math.floor(diff/86400000);diff%=86400000;const hours=Math.floor(diff/3600000);diff%=3600000;const minutes=Math.floor(diff/60000);diff%=60000;const seconds=Math.floor(diff/1000);document.getElementById("days").textContent=String(days).padStart(2,"0");document.getElementById("hours").textContent=String(hours).padStart(2,"0");document.getElementById("minutes").textContent=String(minutes).padStart(2,"0");document.getElementById("seconds").textContent=String(seconds).padStart(2,"0")}updateCountdown();setInterval(updateCountdown,1000);
@@ -1653,6 +1632,19 @@ animated.forEach(el=>observer.observe(el));
   updateAddressCountdown();
   setInterval(updateAddressCountdown,1000);
 })();
+</script>
+
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.addEventListener('toggle', ()=>{
+    if(item.open){
+      document.querySelectorAll('.faq-item[open]').forEach(other=>{
+        if(other !== item) other.removeAttribute('open');
+      });
+    }
+  });
+});
 </script>
 
 </body>
