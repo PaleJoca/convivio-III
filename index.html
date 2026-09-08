@@ -2278,6 +2278,13 @@ document.addEventListener("DOMContentLoaded",()=>{
 });
 </script>
 
+
+<script id="v21-access-boot">
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+document.documentElement.classList.add("locked");
+window.scrollTo(0,0);
+</script>
+
 </head>
 <body>
   
@@ -2365,12 +2372,25 @@ const ACCESS_CODE="5831947",STORAGE_KEY="convivioIII_access";const gate=document
   document.documentElement.classList.remove("locked");
   document.body.classList.remove("locked");
   document.body.classList.add("unlocked");
+
   gate.classList.add("hidden");
+  gate.style.display="none";
+
   site.classList.remove("hidden");
   site.style.display="block";
   site.setAttribute("aria-hidden","false");
-  requestAnimationFrame(()=>site.classList.add("visible"));
-  window.scrollTo({top:0,behavior:"instant"});
+
+  window.scrollTo(0,0);
+  document.documentElement.scrollTop=0;
+  document.body.scrollTop=0;
+
+  requestAnimationFrame(()=>{
+    site.classList.add("visible");
+    window.scrollTo(0,0);
+    requestAnimationFrame(()=>window.scrollTo(0,0));
+  });
+
+  setTimeout(()=>window.scrollTo(0,0),80);
 }
 function playUnlockAnimation(){
   inputs.forEach(i=>i.blur());
@@ -2380,14 +2400,7 @@ function playUnlockAnimation(){
     showSite(true);
   },1750);
 }
-if(localStorage.getItem(STORAGE_KEY)==="granted"){
-  document.documentElement.classList.remove("locked");
-  document.addEventListener("DOMContentLoaded",()=>{
-    document.body.classList.remove("locked");
-    document.body.classList.add("unlocked");
-  });
-}
-if(localStorage.getItem(STORAGE_KEY)==="granted"){showSite(true)}else{setTimeout(()=>inputs[0].focus(),300)}inputs.forEach((input,index)=>{input.addEventListener("input",()=>{input.value=input.value.replace(/\D/g,"").slice(0,1);statusEl.textContent="";statusEl.className="status";if(input.value&&index<inputs.length-1)inputs[index+1].focus()});input.addEventListener("keydown",e=>{if(e.key==="Backspace"&&!input.value&&index>0)inputs[index-1].focus();if(e.key==="Enter")validateCode()});input.addEventListener("paste",e=>{const pasted=(e.clipboardData||window.clipboardData).getData("text").replace(/\D/g,"").slice(0,7);if(pasted.length){e.preventDefault();pasted.split("").forEach((n,i)=>{if(inputs[i])inputs[i].value=n});inputs[Math.min(pasted.length,7)-1].focus()}})});function validateCode(){const entered=inputs.map(i=>i.value).join("");if(entered.length!==7){statusEl.textContent="Introduz os sete números.";statusEl.className="status error";codeRow.classList.remove("shake");void codeRow.offsetWidth;codeRow.classList.add("shake");return}if(entered===ACCESS_CODE){localStorage.setItem(STORAGE_KEY,"granted");statusEl.textContent="";statusEl.className="status ok";playUnlockAnimation()}else{statusEl.textContent="Acesso negado · Código incorreto";statusEl.className="status error";codeRow.classList.remove("shake");void codeRow.offsetWidth;codeRow.classList.add("shake");inputs.forEach(i=>i.value="");inputs[0].focus()}}unlockBtn.addEventListener("click",validateCode);const targetDate=new Date("2026-09-11T00:00:00");function updateCountdown(){let diff=targetDate-new Date();if(diff<=0){["days","hours","minutes","seconds"].forEach(id=>document.getElementById(id).textContent="00");return}const days=Math.floor(diff/86400000);diff%=86400000;const hours=Math.floor(diff/3600000);diff%=3600000;const minutes=Math.floor(diff/60000);diff%=60000;const seconds=Math.floor(diff/1000);document.getElementById("days").textContent=String(days).padStart(2,"0");document.getElementById("hours").textContent=String(hours).padStart(2,"0");document.getElementById("minutes").textContent=String(minutes).padStart(2,"0");document.getElementById("seconds").textContent=String(seconds).padStart(2,"0")}updateCountdown();setInterval(updateCountdown,1000);
+localStorage.removeItem(STORAGE_KEY); setTimeout(()=>inputs[0].focus(),300)inputs.forEach((input,index)=>{input.addEventListener("input",()=>{input.value=input.value.replace(/\D/g,"").slice(0,1);statusEl.textContent="";statusEl.className="status";if(input.value&&index<inputs.length-1)inputs[index+1].focus()});input.addEventListener("keydown",e=>{if(e.key==="Backspace"&&!input.value&&index>0)inputs[index-1].focus();if(e.key==="Enter")validateCode()});input.addEventListener("paste",e=>{const pasted=(e.clipboardData||window.clipboardData).getData("text").replace(/\D/g,"").slice(0,7);if(pasted.length){e.preventDefault();pasted.split("").forEach((n,i)=>{if(inputs[i])inputs[i].value=n});inputs[Math.min(pasted.length,7)-1].focus()}})});function validateCode(){const entered=inputs.map(i=>i.value).join("");if(entered.length!==7){statusEl.textContent="Introduz os sete números.";statusEl.className="status error";codeRow.classList.remove("shake");void codeRow.offsetWidth;codeRow.classList.add("shake");return}if(entered===ACCESS_CODE){statusEl.textContent="";statusEl.className="status ok";playUnlockAnimation()}else{statusEl.textContent="Acesso negado · Código incorreto";statusEl.className="status error";codeRow.classList.remove("shake");void codeRow.offsetWidth;codeRow.classList.add("shake");inputs.forEach(i=>i.value="");inputs[0].focus()}}unlockBtn.addEventListener("click",validateCode);const targetDate=new Date("2026-09-11T00:00:00");function updateCountdown(){let diff=targetDate-new Date();if(diff<=0){["days","hours","minutes","seconds"].forEach(id=>document.getElementById(id).textContent="00");return}const days=Math.floor(diff/86400000);diff%=86400000;const hours=Math.floor(diff/3600000);diff%=3600000;const minutes=Math.floor(diff/60000);diff%=60000;const seconds=Math.floor(diff/1000);document.getElementById("days").textContent=String(days).padStart(2,"0");document.getElementById("hours").textContent=String(hours).padStart(2,"0");document.getElementById("minutes").textContent=String(minutes).padStart(2,"0");document.getElementById("seconds").textContent=String(seconds).padStart(2,"0")}updateCountdown();setInterval(updateCountdown,1000);
 </script>
 
 <script>
@@ -2579,8 +2592,28 @@ document.addEventListener("DOMContentLoaded",()=>{
 });
 </script>
 
+
+<style id="v21-gate-layout-fix">
+body.locked{
+  margin:0!important;
+  overflow:hidden!important;
+}
+body.locked #gate{
+  display:grid!important;
+}
+body.unlocked #gate{
+  display:none!important;
+}
+body.unlocked #site{
+  display:block!important;
+  margin-top:0!important;
+  padding-top:0!important;
+}
+</style>
+
 </body>
 </html>
+
 
 
 
