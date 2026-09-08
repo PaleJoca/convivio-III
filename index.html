@@ -2308,7 +2308,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   </div>
 </div>
 <div id="accessOverlay"><div class="overlay-card"><div class="small">Código validado</div><h2>ACESSO AUTORIZADO</h2></div></div>
-  <main id="site" class="hidden">
+  <main id="site" class="hidden" style="display:none" aria-hidden="true">
     <section class="reveal numbered" data-no="01">
 <div class="hero-mobile-v12" aria-hidden="true">
   <div class="hm-viana">VIANA</div>
@@ -2352,12 +2352,23 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   </main>
 <script>
-const ACCESS_CODE="5831947",STORAGE_KEY="convivioIII_access";const gate=document.getElementById("gate"),site=document.getElementById("site"),overlay=document.getElementById("accessOverlay"),statusEl=document.getElementById("status"),inputs=[...document.querySelectorAll(".digit")],unlockBtn=document.getElementById("unlockBtn"),codeRow=document.getElementById("codeRow");const params=new URLSearchParams(window.location.search);if(params.get("reset")==="1"){localStorage.removeItem(STORAGE_KEY);history.replaceState({},"",window.location.pathname)}function showSite(skipAnimation=false){
+const ACCESS_CODE="5831947",STORAGE_KEY="convivioIII_access";const gate=document.getElementById("gate"),site=document.getElementById("site"),overlay=document.getElementById("accessOverlay"),statusEl=document.getElementById("status"),inputs=[...document.querySelectorAll(".digit")],unlockBtn=document.getElementById("unlockBtn"),codeRow=document.getElementById("codeRow");const params=new URLSearchParams(window.location.search);if(params.get("reset")==="1"){
+  localStorage.removeItem(STORAGE_KEY);
+  document.documentElement.classList.add("locked");
+  if(site){
+    site.classList.add("hidden");
+    site.style.display="none";
+    site.setAttribute("aria-hidden","true");
+  }
+  history.replaceState({},"",window.location.pathname);
+}function showSite(skipAnimation=false){
   document.documentElement.classList.remove("locked");
   document.body.classList.remove("locked");
   document.body.classList.add("unlocked");
   gate.classList.add("hidden");
   site.classList.remove("hidden");
+  site.style.display="block";
+  site.setAttribute("aria-hidden","false");
   requestAnimationFrame(()=>site.classList.add("visible"));
   window.scrollTo({top:0,behavior:"instant"});
 }
@@ -2544,8 +2555,33 @@ html body .dictators-section .dictators{
 }
 </style>
 
+
+<script id="v20-hardlock-guard">
+document.addEventListener("DOMContentLoaded",()=>{
+  const s=document.getElementById("site");
+  const g=document.getElementById("gate");
+  const granted=localStorage.getItem("convivioIII_access")==="granted";
+  if(!granted){
+    document.documentElement.classList.add("locked");
+    document.body.classList.add("locked");
+    document.body.classList.remove("unlocked");
+    if(s){
+      s.classList.add("hidden");
+      s.style.display="none";
+      s.setAttribute("aria-hidden","true");
+    }
+    if(g){
+      g.classList.remove("hidden");
+      g.style.display="";
+    }
+    window.scrollTo(0,0);
+  }
+});
+</script>
+
 </body>
 </html>
+
 
 
 
