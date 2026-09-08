@@ -1517,6 +1517,49 @@
 }
 </style>
 
+<style id="v10">
+/* capa sem filtro */
+.reveal::before,.reveal::after{background:none!important;background-image:none!important;opacity:0!important}
+.reveal h1,.reveal .section-kicker,.reveal .reveal-subplace,.reveal .dates{text-shadow:0 2px 14px rgba(0,0,0,.48)}
+
+/* countdown */
+.countdown-simple{background:var(--cream)!important;color:var(--ink)!important;padding:52px 0 42px}
+.countdown-simple .section-inner{padding-top:0!important;padding-bottom:0!important}
+.countdown-simple .countdown-grid{max-width:820px;margin:auto;border-top:1px solid rgba(16,17,15,.16);border-bottom:1px solid rgba(16,17,15,.16)}
+.countdown-simple .count-box{border-color:rgba(16,17,15,.13)!important}
+.countdown-simple .count-num{color:var(--blue-deep)!important;font-size:clamp(2.6rem,6vw,5rem)!important}
+.countdown-simple .count-label{color:rgba(16,17,15,.58)!important}
+.address-reveal-note{display:flex;justify-content:center;align-items:center;gap:9px;margin-top:18px;color:var(--blue-deep);font-size:.56rem;font-weight:600;letter-spacing:.21em}
+.pin-mini{width:8px;height:8px;border:1.5px solid var(--orange);border-radius:50% 50% 50% 0;transform:rotate(-45deg)}
+
+/* contrast fixes */
+.program-section,.packing-section,.faq-section{color:var(--ink)!important}
+.program-section .section-title,.packing-section .section-title,.faq-section .section-title{color:var(--blue-deep)!important}
+.program-section p,.packing-section p,.faq-section p{color:rgba(16,17,15,.75)!important}
+.dictators-section,.secret-section{color:var(--cream)!important}
+.dictators-section .section-title,.dictators-section .dictator-name,.dictators-section p,.secret-section p{color:var(--cream)!important}
+
+/* regime */
+.dictator-photo{background-size:cover!important;background-position:center top!important}
+.dictator:nth-child(1) .dictator-photo{background-image:url("regime-alvaro.png")!important}
+.dictator:nth-child(2) .dictator-photo{background-image:url("regime-olivio.png")!important}
+.dictator:nth-child(3) .dictator-photo{background-image:url("regime-bruno.png")!important}
+
+/* plano */
+.program-section .day:nth-child(1) .day-visual{background-image:url("casa-viana.png")!important;background-size:cover!important;background-position:center!important}
+.program-section .day:nth-child(2) .day-visual{background-image:url("dia2-casa.png")!important;background-size:cover!important;background-position:center!important}
+.program-section .day:nth-child(3) .day-visual{background-image:url("dia3-casa.png")!important;background-size:cover!important;background-position:center!important}
+
+.faq-section{background:var(--cream)!important}.faq-item summary{color:var(--blue-deep)!important}.faq-item .faq-a{color:rgba(16,17,15,.75)!important}
+
+@media(max-width:800px){
+.reveal{background-size:contain!important;background-repeat:no-repeat!important;background-position:center top!important;background-color:#10110f!important}
+.countdown-simple{padding:34px 0 28px}.countdown-simple .countdown-grid{grid-template-columns:repeat(4,1fr)!important}
+.countdown-simple .count-box{padding:14px 3px!important;border-bottom:0!important}
+.countdown-simple .count-num{font-size:clamp(1.7rem,9vw,2.8rem)!important}.countdown-simple .count-label{font-size:.43rem!important;letter-spacing:.07em!important}
+.address-reveal-note{font-size:.47rem;letter-spacing:.14em;margin-top:14px}
+}
+</style>
 </head>
 <body>
   <div id="gate"><div class="gate-wrap"><div class="eyebrow">Dossier 003 · Acesso reservado</div><h1 class="brand">CONVÍVIO III</h1><div class="restricted">Acesso restrito</div><p class="hint">Sete peças. Sete números.</p><div class="code-row" id="codeRow" aria-label="Código de acesso com sete dígitos"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 1"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 2"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 3"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 4"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 5"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 6"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 7"></div><button class="unlock" id="unlockBtn">Desbloquear</button><div class="status" id="status"></div></div></div>
@@ -1524,41 +1567,19 @@
   <main id="site" class="hidden">
     <section class="reveal numbered" data-no="01"><div class="section-inner"><div class="section-kicker">Convívio à D’Antes III</div><h1>VIANA DO<br>CASTELO</h1><div class="reveal-subplace">Vila Nova de Anha</div><div class="dates">11 — 13 setembro 2026</div></div></section>
     
-<section class="numbered destination-stream" data-no="02">
-  <div class="section-inner">
-    <div class="section-kicker">Destino & encontro</div>
-    <div class="destination-head">
-      <h2 class="section-title">Viana do Castelo.</h2>
-      <div class="mini-countdown">
-        <span><strong id="days">000</strong> dias</span>
-        <span><strong id="hours">00</strong> horas</span>
-        <span><strong id="minutes">00</strong> min</span>
-      </div>
-    </div>
-
-    <div class="destination-card">
-      <div class="viana-map" aria-hidden="true">
-        <div class="coast-shape"></div>
-        <div class="map-circle"></div>
-        <div class="map-dot"></div>
-        <div class="map-name">VIANA DO CASTELO</div>
-        <div class="map-sub">VILA NOVA DE ANHA</div>
-      </div>
-
-      <div class="destination-copy">
-        <div class="small-label">PONTO DE ENCONTRO</div>
-        <p class="meeting-address">Vila Nova de Anha</p>
-        <p class="meeting-date">A morada exata será revelada no dia 11.</p>
-        <div class="address-status">LOCALIZAÇÃO CONFIRMADA · MORADA SOB SIGILO</div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="numbered countdown-simple" data-no="02"><div class="section-inner">
+<div class="countdown-grid">
+<div class="count-box"><span class="count-num" id="days">000</span><span class="count-label">Dias</span></div>
+<div class="count-box"><span class="count-num" id="hours">00</span><span class="count-label">Horas</span></div>
+<div class="count-box"><span class="count-num" id="minutes">00</span><span class="count-label">Minutos</span></div>
+<div class="count-box"><span class="count-num" id="seconds">00</span><span class="count-label">Segundos</span></div>
+</div><div class="address-reveal-note"><span class="pin-mini"></span>MORADA A SER REVELADA</div>
+</div></section>
 
     <section class="numbered program-section" data-no="03"><div class="section-inner"><div class="section-kicker">Plano de operações</div><h2 class="section-title">Três dias. Um plano questionável.</h2><div class="days"><article class="day"><div class="day-visual visual-1"><span>01</span></div><div class="day-date">Sexta · 11</div><h3>Chegada</h3><p>Receção na casa</p><p>Jantar</p><p>Borracheira</p></article><article class="day"><div class="day-visual visual-2"><span>02</span></div><div class="day-date">Sábado · 12</div><h3>Recuperação</h3><p>Manhã — curar a borracheira</p><p>Tarde — atividade</p></article><article class="day"><div class="day-visual visual-3"><span>03</span></div><div class="day-date">Domingo · 13</div><h3>Missão final</h3><p>Acabar com as sobras</p></article></div></div></section>
     <section class="numbered secret-section" data-no="04"><div class="section-inner classified"><div class="secret-mark">III</div><div class="stamp">Brinde</div><div class="brinde-reveal">Revelado no Convívio.</div><div class="classified-note">Até lá, permanece confidencial.</div></div></section>
     <section class="numbered" data-no="05"><div class="section-inner"><div class="section-kicker">O que levar</div><h2 class="section-title">Não te esqueças.</h2><div class="packing"><div class="packing-item"><span class="pack-icon">≈</span><span>Fato de banho</span><span>Obrigatório</span></div><div class="packing-item"><span class="pack-icon">▱</span><span>Toalha</span><span>Por razões óbvias</span></div><div class="packing-item"><span class="pack-icon">◇</span><span>Roupa para o fim de semana</span><span>Recomendado</span></div><div class="packing-item"><span class="pack-icon">✦</span><span>Produtos de higiene</span><span>Muito recomendado</span></div><div class="packing-item"><span class="pack-icon">⌁</span><span>Carregador</span><span>Útil</span></div><div class="packing-item"><span class="pack-icon">☼</span><span>Boa disposição</span><span>Não negociável</span></div></div></div></section>
-    <section class="numbered" data-no="06"><div class="section-inner"><div class="section-kicker">Comissão 2026.</div><h2 class="section-title">O Regime</h2><div class="dictators"><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small>ARQ. III / CONFIDENCIAL</small></div><div class="dictator-info"><h3 class="dictator-name">O Juiz</h3><p><strong>Nome:</strong> por inserir</p><p><strong>Função:</strong> O Juiz</p><p><strong>Veredito:</strong> irrevogável</p></div></article><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small>ARQ. III / CONFIDENCIAL</small></div><div class="dictator-info"><h3 class="dictator-name">O Júri</h3><p><strong>Nome:</strong> por inserir</p><p><strong>Função:</strong> O Júri</p><p><strong>Decisão:</strong> maioritariamente suspeita</p></div></article><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small>ARQ. III / CONFIDENCIAL</small></div><div class="dictator-info"><h3 class="dictator-name">O Executor</h3><p><strong>Nome:</strong> por inserir</p><p><strong>Função:</strong> O Executor</p><p><strong>Recurso:</strong> não disponível</p></div></article></div></div></section>
+    <section class="numbered" data-no="06"><div class="section-inner"><div class="section-kicker">Comissão 2026.</div><h2 class="section-title">O Regime</h2><div class="dictators"><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small>ARQ. III / CONFIDENCIAL</small></div><div class="dictator-info"><h3 class="dictator-name">O Juiz</h3><p><strong>Nome:</strong> Álvaro</p><p><strong>Função:</strong> O Juiz</p><p><strong>Veredito:</strong> irrevogável</p></div></article><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small>ARQ. III / CONFIDENCIAL</small></div><div class="dictator-info"><h3 class="dictator-name">O Júri</h3><p><strong>Nome:</strong> Olívio</p><p><strong>Função:</strong> O Júri</p><p><strong>Decisão:</strong> maioritariamente suspeita</p></div></article><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small>ARQ. III / CONFIDENCIAL</small></div><div class="dictator-info"><h3 class="dictator-name">O Executor</h3><p><strong>Nome:</strong> Bruno</p><p><strong>Função:</strong> O Executor</p><p><strong>Recurso:</strong> não disponível</p></div></article></div></div></section>
     
 <section class="numbered faq-section" data-no="07">
   <div class="section-inner" style="padding-bottom:110px">
