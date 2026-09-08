@@ -2271,19 +2271,29 @@ body.unlocked #site{
 </style>
 
 
-<script id="v19-lock-boot">
-document.documentElement.classList.add("locked");
-document.addEventListener("DOMContentLoaded",()=>{
-  document.body.classList.add("locked");
-});
+<script id="v22-early-access-state">
+(function(){
+  const reset=new URLSearchParams(location.search).get("reset")==="1";
+  const granted=localStorage.getItem("convivioIII_access")==="granted";
+  if(reset || !granted){
+    document.documentElement.classList.add("locked");
+  }
+})();
 </script>
 
 
-<script id="v21-access-boot">
-if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-document.documentElement.classList.add("locked");
-window.scrollTo(0,0);
-</script>
+<style id="v23-access-safety">
+html:not(.locked) body.unlocked{
+  overflow:auto!important;
+  height:auto!important;
+}
+html:not(.locked) body.unlocked #gate{
+  display:none!important;
+}
+html:not(.locked) body.unlocked #site{
+  display:block!important;
+}
+</style>
 
 </head>
 <body>
@@ -2359,16 +2369,37 @@ window.scrollTo(0,0);
 
   </main>
 <script>
-const ACCESS_CODE="5831947",STORAGE_KEY="convivioIII_access";const gate=document.getElementById("gate"),site=document.getElementById("site"),overlay=document.getElementById("accessOverlay"),statusEl=document.getElementById("status"),inputs=[...document.querySelectorAll(".digit")],unlockBtn=document.getElementById("unlockBtn"),codeRow=document.getElementById("codeRow");const params=new URLSearchParams(window.location.search);if(params.get("reset")==="1"){
-  localStorage.removeItem(STORAGE_KEY);
-  document.documentElement.classList.add("locked");
-  if(site){
-    site.classList.add("hidden");
-    site.style.display="none";
-    site.setAttribute("aria-hidden","true");
-  }
-  history.replaceState({},"",window.location.pathname);
-}function showSite(skipAnimation=false){
+const ACCESS_CODE="5831947";
+const STORAGE_KEY="convivioIII_access";
+
+const gate=document.getElementById("gate");
+const site=document.getElementById("site");
+const statusEl=document.getElementById("status");
+const inputs=[...document.querySelectorAll(".digit")];
+const unlockBtn=document.getElementById("unlockBtn");
+const codeRow=document.getElementById("codeRow");
+
+if ("scrollRestoration" in history) history.scrollRestoration="manual";
+
+function revealSiteInstantly(){
+  document.documentElement.classList.remove("locked");
+  document.body.classList.remove("locked");
+  document.body.classList.add("unlocked");
+
+  gate.classList.add("hidden");
+  gate.style.display="none";
+
+  site.classList.remove("hidden");
+  site.style.display="block";
+  site.setAttribute("aria-hidden","false");
+  site.classList.add("visible");
+
+  document.documentElement.scrollTop=0;
+  document.body.scrollTop=0;
+  window.scrollTo(0,0);
+}
+
+function revealSiteAfterUnlock(){
   document.documentElement.classList.remove("locked");
   document.body.classList.remove("locked");
   document.body.classList.add("unlocked");
@@ -2380,27 +2411,135 @@ const ACCESS_CODE="5831947",STORAGE_KEY="convivioIII_access";const gate=document
   site.style.display="block";
   site.setAttribute("aria-hidden","false");
 
-  window.scrollTo(0,0);
   document.documentElement.scrollTop=0;
   document.body.scrollTop=0;
+  window.scrollTo(0,0);
 
   requestAnimationFrame(()=>{
     site.classList.add("visible");
     window.scrollTo(0,0);
-    requestAnimationFrame(()=>window.scrollTo(0,0));
   });
-
-  setTimeout(()=>window.scrollTo(0,0),80);
 }
+
 function playUnlockAnimation(){
   inputs.forEach(i=>i.blur());
   unlockBtn.disabled=true;
   gate.classList.add("unlocking");
-  setTimeout(()=>{
-    showSite(true);
-  },1750);
+  setTimeout(revealSiteAfterUnlock,1750);
 }
-localStorage.removeItem(STORAGE_KEY); setTimeout(()=>inputs[0].focus(),300)inputs.forEach((input,index)=>{input.addEventListener("input",()=>{input.value=input.value.replace(/\D/g,"").slice(0,1);statusEl.textContent="";statusEl.className="status";if(input.value&&index<inputs.length-1)inputs[index+1].focus()});input.addEventListener("keydown",e=>{if(e.key==="Backspace"&&!input.value&&index>0)inputs[index-1].focus();if(e.key==="Enter")validateCode()});input.addEventListener("paste",e=>{const pasted=(e.clipboardData||window.clipboardData).getData("text").replace(/\D/g,"").slice(0,7);if(pasted.length){e.preventDefault();pasted.split("").forEach((n,i)=>{if(inputs[i])inputs[i].value=n});inputs[Math.min(pasted.length,7)-1].focus()}})});function validateCode(){const entered=inputs.map(i=>i.value).join("");if(entered.length!==7){statusEl.textContent="Introduz os sete números.";statusEl.className="status error";codeRow.classList.remove("shake");void codeRow.offsetWidth;codeRow.classList.add("shake");return}if(entered===ACCESS_CODE){statusEl.textContent="";statusEl.className="status ok";playUnlockAnimation()}else{statusEl.textContent="Acesso negado · Código incorreto";statusEl.className="status error";codeRow.classList.remove("shake");void codeRow.offsetWidth;codeRow.classList.add("shake");inputs.forEach(i=>i.value="");inputs[0].focus()}}unlockBtn.addEventListener("click",validateCode);const targetDate=new Date("2026-09-11T00:00:00");function updateCountdown(){let diff=targetDate-new Date();if(diff<=0){["days","hours","minutes","seconds"].forEach(id=>document.getElementById(id).textContent="00");return}const days=Math.floor(diff/86400000);diff%=86400000;const hours=Math.floor(diff/3600000);diff%=3600000;const minutes=Math.floor(diff/60000);diff%=60000;const seconds=Math.floor(diff/1000);document.getElementById("days").textContent=String(days).padStart(2,"0");document.getElementById("hours").textContent=String(hours).padStart(2,"0");document.getElementById("minutes").textContent=String(minutes).padStart(2,"0");document.getElementById("seconds").textContent=String(seconds).padStart(2,"0")}updateCountdown();setInterval(updateCountdown,1000);
+
+function validateCode(){
+  const entered=inputs.map(i=>i.value).join("");
+
+  if(entered.length!==7){
+    statusEl.textContent="Introduz os sete números.";
+    statusEl.className="status error";
+    codeRow.classList.remove("shake");
+    void codeRow.offsetWidth;
+    codeRow.classList.add("shake");
+    return;
+  }
+
+  if(entered===ACCESS_CODE){
+    localStorage.setItem(STORAGE_KEY,"granted");
+    statusEl.textContent="";
+    statusEl.className="status ok";
+    playUnlockAnimation();
+  }else{
+    statusEl.textContent="Acesso negado · Código incorreto";
+    statusEl.className="status error";
+    codeRow.classList.remove("shake");
+    void codeRow.offsetWidth;
+    codeRow.classList.add("shake");
+    inputs.forEach(i=>i.value="");
+    inputs[0].focus();
+  }
+}
+
+const params=new URLSearchParams(window.location.search);
+if(params.get("reset")==="1"){
+  localStorage.removeItem(STORAGE_KEY);
+  history.replaceState({},"",window.location.pathname);
+}
+
+const alreadyGranted=localStorage.getItem(STORAGE_KEY)==="granted";
+
+if(alreadyGranted){
+  revealSiteInstantly();
+}else{
+  document.documentElement.classList.add("locked");
+  document.body.classList.add("locked");
+  document.body.classList.remove("unlocked");
+
+  gate.classList.remove("hidden");
+  gate.style.display="grid";
+
+  site.classList.add("hidden");
+  site.style.display="none";
+  site.setAttribute("aria-hidden","true");
+
+  window.scrollTo(0,0);
+  setTimeout(()=>inputs[0].focus(),300);
+}
+
+inputs.forEach((input,index)=>{
+  input.addEventListener("input",()=>{
+    input.value=input.value.replace(/\D/g,"").slice(0,1);
+    statusEl.textContent="";
+    statusEl.className="status";
+    if(input.value&&index<inputs.length-1) inputs[index+1].focus();
+  });
+
+  input.addEventListener("keydown",e=>{
+    if(e.key==="Backspace"&&!input.value&&index>0) inputs[index-1].focus();
+    if(e.key==="Enter") validateCode();
+  });
+
+  input.addEventListener("paste",e=>{
+    const pasted=(e.clipboardData||window.clipboardData)
+      .getData("text")
+      .replace(/\D/g,"")
+      .slice(0,7);
+
+    if(pasted.length){
+      e.preventDefault();
+      pasted.split("").forEach((n,i)=>{
+        if(inputs[i]) inputs[i].value=n;
+      });
+      inputs[Math.min(pasted.length,7)-1].focus();
+    }
+  });
+});
+
+unlockBtn.addEventListener("click",validateCode);
+
+const targetDate=new Date("2026-09-11T00:00:00");
+function updateCountdown(){
+  let diff=targetDate-new Date();
+
+  if(diff<=0){
+    ["days","hours","minutes","seconds"].forEach(id=>{
+      document.getElementById(id).textContent="00";
+    });
+    return;
+  }
+
+  const days=Math.floor(diff/86400000);
+  diff%=86400000;
+  const hours=Math.floor(diff/3600000);
+  diff%=3600000;
+  const minutes=Math.floor(diff/60000);
+  diff%=60000;
+  const seconds=Math.floor(diff/1000);
+
+  document.getElementById("days").textContent=String(days).padStart(2,"0");
+  document.getElementById("hours").textContent=String(hours).padStart(2,"0");
+  document.getElementById("minutes").textContent=String(minutes).padStart(2,"0");
+  document.getElementById("seconds").textContent=String(seconds).padStart(2,"0");
+}
+
+updateCountdown();
+setInterval(updateCountdown,1000);
 </script>
 
 <script>
@@ -2569,28 +2708,7 @@ html body .dictators-section .dictators{
 </style>
 
 
-<script id="v20-hardlock-guard">
-document.addEventListener("DOMContentLoaded",()=>{
-  const s=document.getElementById("site");
-  const g=document.getElementById("gate");
-  const granted=localStorage.getItem("convivioIII_access")==="granted";
-  if(!granted){
-    document.documentElement.classList.add("locked");
-    document.body.classList.add("locked");
-    document.body.classList.remove("unlocked");
-    if(s){
-      s.classList.add("hidden");
-      s.style.display="none";
-      s.setAttribute("aria-hidden","true");
-    }
-    if(g){
-      g.classList.remove("hidden");
-      g.style.display="";
-    }
-    window.scrollTo(0,0);
-  }
-});
-</script>
+
 
 
 <style id="v21-gate-layout-fix">
@@ -2613,6 +2731,7 @@ body.unlocked #site{
 
 </body>
 </html>
+
 
 
 
