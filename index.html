@@ -2181,6 +2181,83 @@ html body .dictators-section .dictator h3.dictator-name{
 }
 </style>
 
+
+<style id="v16-final-two-fixes">
+/* Final role-title colour: neutral dark grey */
+html body .dictators-section .dictator .dictator-info .dictator-name,
+html body .dictators-section .dictator .dictator-info h3,
+html body .dictators-section .dictator h3.dictator-name{
+  color:#30383b !important;
+  -webkit-text-fill-color:#30383b !important;
+  opacity:1 !important;
+}
+
+/* Remove excess gap between O Regime and Brinde */
+html body .dictators-section{
+  padding-bottom:0 !important;
+  margin-bottom:0 !important;
+}
+html body .dictators-section .section-inner{
+  padding-bottom:0 !important;
+  margin-bottom:0 !important;
+}
+html body .dictators-section .dictators,
+html body .dictators-section .dictator,
+html body .dictators-section .dictator-info{
+  margin-bottom:0 !important;
+}
+html body .secret-section{
+  margin-top:0 !important;
+}
+
+@media(max-width:800px){
+  html body .dictators-section{
+    padding-bottom:0 !important;
+  }
+  html body .dictators-section .section-inner{
+    padding-bottom:0 !important;
+  }
+}
+</style>
+
+
+<style id="v17-regime-final">
+/* O Regime: force role titles to dark grey, overriding all previous cream rules */
+html body section.dictators-section article.dictator .dictator-info h3.dictator-name,
+html body section.dictators-section article.dictator h3.dictator-name,
+html body .dictators-section .dictator-name{
+  color:#30383b !important;
+  -webkit-text-fill-color:#30383b !important;
+  text-shadow:none !important;
+  opacity:1 !important;
+}
+
+/* Remove every frame/box/outline around Regime photos/cards */
+html body .dictators-section .dictator,
+html body .dictators-section .photo-placeholder,
+html body .dictators-section .dictator-photo{
+  border:none !important;
+  outline:none !important;
+  box-shadow:none !important;
+}
+html body .dictators-section .photo-placeholder::before,
+html body .dictators-section .photo-placeholder::after,
+html body .dictators-section .dictator-photo::before,
+html body .dictators-section .dictator-photo::after{
+  border:none !important;
+  outline:none !important;
+  box-shadow:none !important;
+}
+
+/* Keep Regime close to Brinde */
+html body .dictators-section,
+html body .dictators-section .section-inner,
+html body .dictators-section .dictators{
+  padding-bottom:0 !important;
+  margin-bottom:0 !important;
+}
+</style>
+
 </body>
 </html>
 
