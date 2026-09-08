@@ -1560,6 +1560,85 @@
 .address-reveal-note{font-size:.47rem;letter-spacing:.14em;margin-top:14px}
 }
 </style>
+
+<style id="v11-fixes">
+/* Regime image bindings */
+.dictator:nth-child(1) .photo-placeholder{
+  background-image:url("regime-alvaro.png")!important;
+  background-size:cover!important;
+  background-position:center top!important;
+  color:transparent!important;
+}
+.dictator:nth-child(2) .photo-placeholder{
+  background-image:url("regime-olivio.png")!important;
+  background-size:cover!important;
+  background-position:center top!important;
+  color:transparent!important;
+}
+.dictator:nth-child(3) .photo-placeholder{
+  background-image:url("regime-bruno.png")!important;
+  background-size:cover!important;
+  background-position:center top!important;
+  color:transparent!important;
+}
+.dictator .photo-placeholder{font-size:0!important}
+
+/* Remove old plan title/subtitle */
+.program-section .section-title,
+.program-section .section-kicker{
+  display:none!important;
+}
+
+/* Rename packing section to Não esquecer and tighten it */
+.packing-section .section-kicker{display:none!important}
+.packing-section .section-title{
+  font-size:clamp(2.2rem,5vw,4.2rem)!important;
+  margin-bottom:24px!important;
+}
+
+/* Mobile: keep packing horizontal and slightly smaller */
+@media(max-width:800px){
+  .packing-section .packing{
+    display:flex!important;
+    gap:10px!important;
+    overflow-x:auto!important;
+    scroll-snap-type:x mandatory!important;
+    padding-bottom:10px!important;
+    scrollbar-width:none!important;
+  }
+  .packing-section .packing::-webkit-scrollbar{display:none!important}
+  .packing-section .packing-item{
+    flex:0 0 42%!important;
+    min-width:132px!important;
+    scroll-snap-align:start!important;
+    padding:16px 12px!important;
+  }
+  .packing-section .packing-item span:first-child{
+    font-size:.84rem!important;
+  }
+  .packing-section .packing-item span:last-child{
+    font-size:.68rem!important;
+  }
+
+  /* Hero: reduce vertical gap between image and title */
+  .reveal{
+    min-height:68vh!important;
+    background-position:center 4%!important;
+  }
+  .reveal .section-inner{
+    min-height:68vh!important;
+  }
+  .reveal h1{
+    margin-top:0!important;
+  }
+  .reveal .hero-content,
+  .reveal .reveal-content{
+    justify-content:flex-end!important;
+    padding-bottom:28px!important;
+  }
+}
+</style>
+
 </head>
 <body>
   <div id="gate"><div class="gate-wrap"><div class="eyebrow">Dossier 003 · Acesso reservado</div><h1 class="brand">CONVÍVIO III</h1><div class="restricted">Acesso restrito</div><p class="hint">Sete peças. Sete números.</p><div class="code-row" id="codeRow" aria-label="Código de acesso com sete dígitos"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 1"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 2"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 3"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 4"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 5"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 6"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 7"></div><button class="unlock" id="unlockBtn">Desbloquear</button><div class="status" id="status"></div></div></div>
@@ -1576,9 +1655,9 @@
 </div><div class="address-reveal-note"><span class="pin-mini"></span>MORADA A SER REVELADA</div>
 </div></section>
 
-    <section class="numbered program-section" data-no="03"><div class="section-inner"><div class="section-kicker">Plano de operações</div><h2 class="section-title">Três dias. Um plano questionável.</h2><div class="days"><article class="day"><div class="day-visual visual-1"><span>01</span></div><div class="day-date">Sexta · 11</div><h3>Chegada</h3><p>Receção na casa</p><p>Jantar</p><p>Borracheira</p></article><article class="day"><div class="day-visual visual-2"><span>02</span></div><div class="day-date">Sábado · 12</div><h3>Recuperação</h3><p>Manhã — curar a borracheira</p><p>Tarde — atividade</p></article><article class="day"><div class="day-visual visual-3"><span>03</span></div><div class="day-date">Domingo · 13</div><h3>Missão final</h3><p>Acabar com as sobras</p></article></div></div></section>
+    <section class="numbered program-section" data-no="03"><div class="section-inner"><div class="section-kicker">Plano de operações</div><h2 class="section-title"></h2><div class="days"><article class="day"><div class="day-visual visual-1"><span>01</span></div><div class="day-date">Sexta · 11</div><h3>Chegada</h3><p>Receção na casa</p><p>Jantar</p><p>Borracheira</p></article><article class="day"><div class="day-visual visual-2"><span>02</span></div><div class="day-date">Sábado · 12</div><h3>Recuperação</h3><p>Manhã — curar a borracheira</p><p>Tarde — atividade</p></article><article class="day"><div class="day-visual visual-3"><span>03</span></div><div class="day-date">Domingo · 13</div><h3>Missão final</h3><p>Acabar com as sobras</p></article></div></div></section>
     <section class="numbered secret-section" data-no="04"><div class="section-inner classified"><div class="secret-mark">III</div><div class="stamp">Brinde</div><div class="brinde-reveal">Revelado no Convívio.</div><div class="classified-note">Até lá, permanece confidencial.</div></div></section>
-    <section class="numbered" data-no="05"><div class="section-inner"><div class="section-kicker">O que levar</div><h2 class="section-title">Não te esqueças.</h2><div class="packing"><div class="packing-item"><span class="pack-icon">≈</span><span>Fato de banho</span><span>Obrigatório</span></div><div class="packing-item"><span class="pack-icon">▱</span><span>Toalha</span><span>Por razões óbvias</span></div><div class="packing-item"><span class="pack-icon">◇</span><span>Roupa para o fim de semana</span><span>Recomendado</span></div><div class="packing-item"><span class="pack-icon">✦</span><span>Produtos de higiene</span><span>Muito recomendado</span></div><div class="packing-item"><span class="pack-icon">⌁</span><span>Carregador</span><span>Útil</span></div><div class="packing-item"><span class="pack-icon">☼</span><span>Boa disposição</span><span>Não negociável</span></div></div></div></section>
+    <section class="numbered" data-no="05"><div class="section-inner"><div class="section-kicker">Não esquecer</div><h2 class="section-title">Não te esqueças.</h2><div class="packing"><div class="packing-item"><span class="pack-icon">≈</span><span>Fato de banho</span><span>Obrigatório</span></div><div class="packing-item"><span class="pack-icon">▱</span><span>Toalha</span><span>Por razões óbvias</span></div><div class="packing-item"><span class="pack-icon">◇</span><span>Roupa para o fim de semana</span><span>Recomendado</span></div><div class="packing-item"><span class="pack-icon">✦</span><span>Produtos de higiene</span><span>Muito recomendado</span></div><div class="packing-item"><span class="pack-icon">⌁</span><span>Carregador</span><span>Útil</span></div><div class="packing-item"><span class="pack-icon">☼</span><span>Boa disposição</span><span>Não negociável</span></div></div></div></section>
     <section class="numbered" data-no="06"><div class="section-inner"><div class="section-kicker">Comissão 2026.</div><h2 class="section-title">O Regime</h2><div class="dictators"><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small>ARQ. III / CONFIDENCIAL</small></div><div class="dictator-info"><h3 class="dictator-name">O Juiz</h3><p><strong>Nome:</strong> Álvaro</p><p><strong>Função:</strong> O Juiz</p><p><strong>Veredito:</strong> irrevogável</p></div></article><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small>ARQ. III / CONFIDENCIAL</small></div><div class="dictator-info"><h3 class="dictator-name">O Júri</h3><p><strong>Nome:</strong> Olívio</p><p><strong>Função:</strong> O Júri</p><p><strong>Decisão:</strong> maioritariamente suspeita</p></div></article><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small>ARQ. III / CONFIDENCIAL</small></div><div class="dictator-info"><h3 class="dictator-name">O Executor</h3><p><strong>Nome:</strong> Bruno</p><p><strong>Função:</strong> O Executor</p><p><strong>Recurso:</strong> não disponível</p></div></article></div></div></section>
     
 <section class="numbered faq-section" data-no="07">
