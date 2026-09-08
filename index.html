@@ -1435,7 +1435,7 @@
     }
 
     .dictator-info::before{
-      content:"DOSSIER / COMISSÃO 2026";
+      content:"";
     }
 
     @keyframes pinFloat{
@@ -1639,12 +1639,316 @@
 }
 </style>
 
+
+<style id="v12-mobile-polish">
+/* V12 — desktop essentially preserved; mobile refined */
+
+/* Countdown: remove box/guide lines, retain clean pin note */
+.countdown-simple .countdown-grid{
+  border-top:0!important;
+  border-bottom:0!important;
+}
+.countdown-simple .count-box{
+  border:0!important;
+}
+
+/* Regime: remove dossier pseudo labels and improve text contrast */
+.dictator-info::before,
+.dictators-section::before,
+.dictators-section::after{
+  content:none!important;
+  display:none!important;
+}
+.dictators-section .dictator-info,
+.dictators-section .dictator-info p,
+.dictators-section .dictator-info strong{
+  color:rgba(242,238,219,.88)!important;
+}
+.dictators-section .dictator-name{
+  color:var(--cream)!important;
+}
+.dictators-section .dictator-info strong{
+  font-weight:500!important;
+}
+
+/* Não esquecer — lighter and more horizontal on desktop too */
+.packing-section .packing{
+  display:flex!important;
+  gap:0!important;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.packing-section .packing::-webkit-scrollbar{display:none}
+.packing-section .packing-item{
+  flex:1 1 0!important;
+  min-width:0!important;
+  padding:16px 12px!important;
+}
+.packing-section .packing-item span:first-child{
+  font-size:.86rem!important;
+}
+.packing-section .packing-item span:last-child{
+  font-size:.66rem!important;
+  line-height:1.35!important;
+}
+
+/* Brinde: compact in both layouts */
+.compact-brinde .classified,
+.secret-section .classified{
+  padding-top:42px!important;
+  padding-bottom:42px!important;
+}
+.secret-section .secret-mark{
+  width:50px!important;height:50px!important;
+  margin-bottom:12px!important;
+}
+.secret-section .brinde-reveal{
+  font-size:clamp(2rem,4vw,3.6rem)!important;
+  margin-top:10px!important;
+}
+.secret-section .classified-note{
+  margin-top:10px!important;
+}
+
+/* FAQ polish */
+.faq-item summary{
+  transition:padding .2s ease,opacity .2s ease;
+}
+.faq-item summary:hover{opacity:.72}
+.faq-plus{color:var(--orange)!important}
+.faq-a{
+  animation:faqReveal .22s ease both;
+}
+@keyframes faqReveal{
+  from{opacity:0;transform:translateY(-5px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:800px){
+  /* Hero: remove black gap and turn title into editorial cover composition */
+  .reveal{
+    min-height:72svh!important;
+    height:72svh!important;
+    background-size:cover!important;
+    background-position:center center!important;
+    background-repeat:no-repeat!important;
+    margin-bottom:0!important;
+    overflow:hidden!important;
+  }
+  .reveal .section-inner{
+    min-height:72svh!important;
+    height:72svh!important;
+    width:calc(100% - 28px)!important;
+    position:relative!important;
+    padding:0!important;
+  }
+  .reveal::before,.reveal::after{
+    display:none!important;
+  }
+
+  /* Hide original hero text only on mobile; recreate editorial lockup */
+  .reveal .section-kicker,
+  .reveal h1,
+  .reveal .reveal-subplace,
+  .reveal .dates{
+    display:none!important;
+  }
+  .reveal .section-inner::before{
+    content:"CONVÍVIO À D’ANTES III";
+    position:absolute;
+    top:16px;
+    left:0;
+    z-index:5;
+    color:var(--cream);
+    font:600 .48rem/1 var(--sans);
+    letter-spacing:.22em;
+    text-shadow:0 2px 8px rgba(0,0,0,.55);
+  }
+  .reveal .section-inner::after{
+    content:"III";
+    position:absolute;
+    top:16px;
+    right:0;
+    z-index:5;
+    width:46px;height:46px;
+    border:1px solid rgba(242,238,219,.82);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    color:var(--cream);
+    font:400 1rem/1 var(--serif);
+    transform:rotate(-8deg);
+    text-shadow:0 2px 8px rgba(0,0,0,.5);
+  }
+  .reveal{
+    --mobile-title-shadow:0 3px 14px rgba(0,0,0,.58);
+  }
+  .reveal .hero-mobile-v12{
+    display:block!important;
+  }
+
+  /* Countdown touches hero directly */
+  .countdown-simple{
+    margin-top:0!important;
+    padding:26px 0 22px!important;
+  }
+  .countdown-simple .section-inner{
+    padding:0 14px!important;
+  }
+  .countdown-simple .countdown-grid{
+    gap:0!important;
+  }
+  .countdown-simple .count-num{
+    font-size:clamp(1.7rem,8.5vw,2.7rem)!important;
+  }
+  .address-reveal-note{
+    margin-top:11px!important;
+  }
+
+  /* Program: swipe with next card deliberately peeking in */
+  .program-section .days{
+    display:flex!important;
+    gap:12px!important;
+    overflow-x:auto!important;
+    scroll-snap-type:x mandatory!important;
+    padding-right:15vw!important;
+    scrollbar-width:none!important;
+  }
+  .program-section .day{
+    flex:0 0 78%!important;
+    min-width:0!important;
+    scroll-snap-align:start!important;
+  }
+
+  /* Não esquecer: compact horizontal strip */
+  .packing-section .packing{
+    gap:7px!important;
+    padding-right:12vw!important;
+    scroll-snap-type:x mandatory!important;
+  }
+  .packing-section .packing-item{
+    flex:0 0 31%!important;
+    min-width:102px!important;
+    padding:12px 8px!important;
+    scroll-snap-align:start!important;
+  }
+  .packing-section .packing-item span:first-child{
+    font-size:.73rem!important;
+  }
+  .packing-section .packing-item span:last-child{
+    font-size:.56rem!important;
+  }
+
+  /* Regime: next card visible + cleaner information */
+  .dictators{
+    padding-right:14vw!important;
+  }
+  .dictator{
+    flex:0 0 78%!important;
+  }
+  .dictators-section .dictator-info{
+    padding-top:14px!important;
+  }
+  .dictators-section .dictator-info p{
+    font-size:.72rem!important;
+  }
+
+  /* Brinde: much shorter on mobile */
+  .secret-section .classified{
+    padding-top:30px!important;
+    padding-bottom:30px!important;
+  }
+  .secret-section .secret-mark{
+    width:42px!important;height:42px!important;
+  }
+  .secret-section .brinde-reveal{
+    font-size:2rem!important;
+  }
+
+  /* FAQ compact */
+  .faq-item summary{
+    padding:14px 0!important;
+  }
+  .faq-q{
+    font-size:1.15rem!important;
+  }
+  .faq-a{
+    padding:0 22px 14px 0!important;
+    font-size:.88rem!important;
+  }
+}
+
+/* Mobile-only editorial title elements */
+.hero-mobile-v12{display:none}
+@media(max-width:800px){
+  .hero-mobile-v12{
+    position:absolute;
+    inset:0;
+    z-index:4;
+    pointer-events:none;
+    color:var(--cream);
+  }
+  .hm-viana{
+    position:absolute;
+    left:0;
+    bottom:122px;
+    font:400 clamp(4.8rem,24vw,7.2rem)/.72 var(--serif);
+    letter-spacing:-.08em;
+    text-shadow:var(--mobile-title-shadow);
+  }
+  .hm-do{
+    position:absolute;
+    left:8px;
+    bottom:91px;
+    color:var(--orange);
+    font:600 .56rem/1 var(--sans);
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    text-shadow:0 2px 8px rgba(0,0,0,.55);
+  }
+  .hm-castelo{
+    position:absolute;
+    left:37px;
+    bottom:57px;
+    font:400 clamp(3.4rem,17.5vw,5.2rem)/.76 var(--serif);
+    letter-spacing:-.07em;
+    text-shadow:var(--mobile-title-shadow);
+  }
+  .hm-place{
+    position:absolute;
+    left:2px;
+    bottom:20px;
+    font:600 .47rem/1 var(--sans);
+    letter-spacing:.24em;
+    text-shadow:0 2px 8px rgba(0,0,0,.55);
+  }
+  .hm-date{
+    position:absolute;
+    right:0;
+    top:50%;
+    writing-mode:vertical-rl;
+    transform:translateY(-50%) rotate(180deg);
+    font:600 .45rem/1 var(--sans);
+    letter-spacing:.22em;
+    text-shadow:0 2px 8px rgba(0,0,0,.55);
+  }
+}
+</style>
+
 </head>
 <body>
   <div id="gate"><div class="gate-wrap"><div class="eyebrow">Dossier 003 · Acesso reservado</div><h1 class="brand">CONVÍVIO III</h1><div class="restricted">Acesso restrito</div><p class="hint">Sete peças. Sete números.</p><div class="code-row" id="codeRow" aria-label="Código de acesso com sete dígitos"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 1"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 2"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 3"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 4"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 5"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 6"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 7"></div><button class="unlock" id="unlockBtn">Desbloquear</button><div class="status" id="status"></div></div></div>
   <div id="accessOverlay"><div class="overlay-card"><div class="small">Código validado</div><h2>ACESSO AUTORIZADO</h2></div></div>
   <main id="site" class="hidden">
-    <section class="reveal numbered" data-no="01"><div class="section-inner"><div class="section-kicker">Convívio à D’Antes III</div><h1>VIANA DO<br>CASTELO</h1><div class="reveal-subplace">Vila Nova de Anha</div><div class="dates">11 — 13 setembro 2026</div></div></section>
+    <section class="reveal numbered" data-no="01">
+<div class="hero-mobile-v12" aria-hidden="true">
+  <div class="hm-viana">VIANA</div>
+  <div class="hm-do">DO</div>
+  <div class="hm-castelo">CASTELO</div>
+  <div class="hm-place">VILA NOVA DE ANHA</div>
+  <div class="hm-date">11—13 SET. 2026</div>
+</div>
+<div class="section-inner"><div class="section-kicker">Convívio à D’Antes III</div><h1>VIANA DO<br>CASTELO</h1><div class="reveal-subplace">Vila Nova de Anha</div><div class="dates">11 — 13 setembro 2026</div></div></section>
     
 <section class="numbered countdown-simple" data-no="02"><div class="section-inner">
 <div class="countdown-grid">
@@ -1658,7 +1962,7 @@
     <section class="numbered program-section" data-no="03"><div class="section-inner"><div class="section-kicker">Plano de operações</div><h2 class="section-title"></h2><div class="days"><article class="day"><div class="day-visual visual-1"><span>01</span></div><div class="day-date">Sexta · 11</div><h3>Chegada</h3><p>Receção na casa</p><p>Jantar</p><p>Borracheira</p></article><article class="day"><div class="day-visual visual-2"><span>02</span></div><div class="day-date">Sábado · 12</div><h3>Recuperação</h3><p>Manhã — curar a borracheira</p><p>Tarde — atividade</p></article><article class="day"><div class="day-visual visual-3"><span>03</span></div><div class="day-date">Domingo · 13</div><h3>Missão final</h3><p>Acabar com as sobras</p></article></div></div></section>
     <section class="numbered secret-section" data-no="04"><div class="section-inner classified"><div class="secret-mark">III</div><div class="stamp">Brinde</div><div class="brinde-reveal">Revelado no Convívio.</div><div class="classified-note">Até lá, permanece confidencial.</div></div></section>
     <section class="numbered" data-no="05"><div class="section-inner"><div class="section-kicker">Não esquecer</div><h2 class="section-title">Não te esqueças.</h2><div class="packing"><div class="packing-item"><span class="pack-icon">≈</span><span>Fato de banho</span><span>Obrigatório</span></div><div class="packing-item"><span class="pack-icon">▱</span><span>Toalha</span><span>Por razões óbvias</span></div><div class="packing-item"><span class="pack-icon">◇</span><span>Roupa para o fim de semana</span><span>Recomendado</span></div><div class="packing-item"><span class="pack-icon">✦</span><span>Produtos de higiene</span><span>Muito recomendado</span></div><div class="packing-item"><span class="pack-icon">⌁</span><span>Carregador</span><span>Útil</span></div><div class="packing-item"><span class="pack-icon">☼</span><span>Boa disposição</span><span>Não negociável</span></div></div></div></section>
-    <section class="numbered" data-no="06"><div class="section-inner"><div class="section-kicker">Comissão 2026.</div><h2 class="section-title">O Regime</h2><div class="dictators"><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small>ARQ. III / CONFIDENCIAL</small></div><div class="dictator-info"><h3 class="dictator-name">O Juiz</h3><p><strong>Nome:</strong> Álvaro</p><p><strong>Função:</strong> O Juiz</p><p><strong>Veredito:</strong> irrevogável</p></div></article><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small>ARQ. III / CONFIDENCIAL</small></div><div class="dictator-info"><h3 class="dictator-name">O Júri</h3><p><strong>Nome:</strong> Olívio</p><p><strong>Função:</strong> O Júri</p><p><strong>Decisão:</strong> maioritariamente suspeita</p></div></article><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small>ARQ. III / CONFIDENCIAL</small></div><div class="dictator-info"><h3 class="dictator-name">O Executor</h3><p><strong>Nome:</strong> Bruno</p><p><strong>Função:</strong> O Executor</p><p><strong>Recurso:</strong> não disponível</p></div></article></div></div></section>
+    <section class="numbered" data-no="06"><div class="section-inner"><div class="section-kicker">Comissão 2026.</div><h2 class="section-title">O Regime</h2><div class="dictators"><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small></small></div><div class="dictator-info"><h3 class="dictator-name">O Juiz</h3><p><strong>Nome:</strong> Álvaro</p><p><strong>Função:</strong> O Juiz</p></div></article><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small></small></div><div class="dictator-info"><h3 class="dictator-name">O Júri</h3><p><strong>Nome:</strong> Olívio</p><p><strong>Função:</strong> O Júri</p></div></article><article class="dictator"><div class="photo-placeholder"><span>FOTOGRAFIA<br>POR INSERIR</span><small></small></div><div class="dictator-info"><h3 class="dictator-name">O Executor</h3><p><strong>Nome:</strong> Bruno</p><p><strong>Função:</strong> O Executor</p></div></article></div></div></section>
     
 <section class="numbered faq-section" data-no="07">
   <div class="section-inner" style="padding-bottom:110px">
