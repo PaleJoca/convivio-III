@@ -2042,11 +2042,280 @@
 }
 </style>
 
+
+<style id="v18-access-redesign">
+/* V18 — simplified access screen */
+#gate{
+  min-height:100svh!important;
+  height:100svh!important;
+  overflow:hidden!important;
+  display:grid!important;
+  place-items:center!important;
+  padding:24px!important;
+  background:
+    radial-gradient(circle at 50% 44%,rgba(71,125,145,.10),transparent 32%),
+    linear-gradient(180deg,#0d1112 0%,#080a0a 100%)!important;
+}
+#gate::before,#gate::after{content:none!important;display:none!important}
+
+#gate .gate-wrap{
+  position:relative!important;
+  z-index:3!important;
+  width:min(760px,100%)!important;
+  text-align:center!important;
+  animation:none!important;
+  transform:none!important;
+}
+
+#gate .brand{
+  margin:0!important;
+  position:relative!important;
+  z-index:3!important;
+  color:var(--cream)!important;
+  font-family:var(--serif)!important;
+  font-size:clamp(4.6rem,11.5vw,9.6rem)!important;
+  font-weight:400!important;
+  line-height:.8!important;
+  letter-spacing:-.075em!important;
+  text-shadow:0 9px 32px rgba(0,0,0,.28)!important;
+  transition:opacity .36s ease,transform .5s cubic-bezier(.2,.7,.2,1)!important;
+}
+
+#gate .hint{
+  position:relative!important;
+  z-index:3!important;
+  margin:30px 0 30px!important;
+  color:#b9b29e!important;
+  font-family:var(--serif)!important;
+  font-size:1.03rem!important;
+  font-style:italic!important;
+  transition:opacity .25s ease,transform .35s ease!important;
+}
+
+#gate .gate-controls{
+  position:relative!important;
+  z-index:3!important;
+  transition:opacity .25s ease,transform .35s ease!important;
+}
+
+#gate .code-row{
+  margin-bottom:16px!important;
+}
+#gate .digit{
+  width:54px!important;
+  height:64px!important;
+  background:rgba(255,255,255,.012)!important;
+  border:1px solid rgba(242,238,219,.24)!important;
+  color:var(--cream)!important;
+}
+#gate .digit:focus{
+  border-color:var(--orange)!important;
+  box-shadow:none!important;
+}
+#gate .unlock{
+  min-width:220px!important;
+  color:var(--cream)!important;
+  border-color:rgba(242,238,219,.25)!important;
+  background:transparent!important;
+}
+#gate .status{
+  min-height:22px!important;
+  margin-top:17px!important;
+}
+#gate .status.error{color:#db745c!important}
+
+/* Three independent roman pins behind CONVÍVIO */
+#gate .roman-lock{
+  position:absolute!important;
+  left:50%!important;
+  top:48%!important;
+  transform:translate(-50%,-50%)!important;
+  z-index:1!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:clamp(2px,1.4vw,16px)!important;
+  pointer-events:none!important;
+}
+#gate .roman-pin{
+  display:block!important;
+  font-family:var(--serif)!important;
+  font-weight:400!important;
+  font-size:clamp(13rem,31vw,28rem)!important;
+  line-height:.65!important;
+  color:#173a49!important;
+  opacity:.48!important;
+  text-shadow:none!important;
+  transform:translateY(0) scaleY(1)!important;
+  transition:
+    color .42s ease,
+    opacity .42s ease,
+    transform .82s cubic-bezier(.18,.78,.18,1)!important;
+}
+
+/* Unlock sequence */
+#gate.unlocking .gate-controls{
+  opacity:0!important;
+  transform:translateY(10px)!important;
+}
+#gate.unlocking .hint{
+  opacity:0!important;
+  transform:translateY(6px)!important;
+}
+#gate.unlocking .brand{
+  opacity:0!important;
+  transform:scale(.985)!important;
+}
+#gate.unlocking .roman-pin{
+  color:var(--cream)!important;
+  opacity:1!important;
+}
+#gate.unlocking .pin-one{
+  transform:translateY(-24vh) scaleY(1.08)!important;
+  transition-delay:.34s!important;
+}
+#gate.unlocking .pin-two{
+  transform:translateY(24vh) scaleY(1.08)!important;
+  transition-delay:.42s!important;
+}
+#gate.unlocking .pin-three{
+  transform:translateY(-24vh) scaleY(1.08)!important;
+  transition-delay:.50s!important;
+}
+#gate.unlocking{
+  animation:gateRelease .48s ease 1.25s forwards!important;
+}
+@keyframes gateRelease{
+  to{opacity:0;transform:scale(1.015)}
+}
+
+/* Old authorization overlay is no longer used */
+#accessOverlay{display:none!important}
+
+@media(max-width:800px){
+  #gate{
+    padding:20px 14px!important;
+  }
+  #gate .brand{
+    font-size:clamp(4rem,20vw,6.6rem)!important;
+  }
+  #gate .roman-lock{
+    top:46%!important;
+    gap:2px!important;
+  }
+  #gate .roman-pin{
+    font-size:clamp(12rem,55vw,20rem)!important;
+  }
+  #gate .hint{
+    margin:24px 0 27px!important;
+    font-size:.96rem!important;
+  }
+  #gate .code-row{
+    gap:6px!important;
+  }
+  #gate .digit{
+    width:calc((100vw - 70px)/7)!important;
+    max-width:43px!important;
+    min-width:34px!important;
+    height:55px!important;
+    font-size:1.45rem!important;
+  }
+  #gate .unlock{
+    min-width:190px!important;
+    padding:13px 20px!important;
+  }
+  #gate.unlocking .pin-one{
+    transform:translateY(-27vh) scaleY(1.08)!important;
+  }
+  #gate.unlocking .pin-two{
+    transform:translateY(27vh) scaleY(1.08)!important;
+  }
+  #gate.unlocking .pin-three{
+    transform:translateY(-27vh) scaleY(1.08)!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  #gate .brand,#gate .hint,#gate .gate-controls,#gate .roman-pin{transition:none!important}
+  #gate.unlocking{animation:none!important;opacity:0!important}
+}
+</style>
+
+
+<style id="v19-real-lock">
+/* Prevent any access to the page before successful unlock */
+html.locked,
+body.locked{
+  overflow:hidden !important;
+  height:100% !important;
+}
+body.locked #site{
+  display:none !important;
+}
+body.locked #gate{
+  position:fixed !important;
+  inset:0 !important;
+  z-index:99999 !important;
+  width:100vw !important;
+  height:100svh !important;
+}
+
+/* Once access is granted, restore normal page flow */
+body.unlocked{
+  overflow:auto !important;
+  height:auto !important;
+}
+body.unlocked #site{
+  display:block !important;
+}
+</style>
+
+
+<script id="v19-lock-boot">
+document.documentElement.classList.add("locked");
+document.addEventListener("DOMContentLoaded",()=>{
+  document.body.classList.add("locked");
+});
+</script>
+
+
+<script id="v21-access-boot">
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+document.documentElement.classList.add("locked");
+window.scrollTo(0,0);
+</script>
+
 </head>
 <body>
-  <div id="gate"><div class="gate-wrap"><div class="eyebrow">Dossier 003 · Acesso reservado</div><h1 class="brand">CONVÍVIO III</h1><div class="restricted">Acesso restrito</div><p class="hint">Sete peças. Sete números.</p><div class="code-row" id="codeRow" aria-label="Código de acesso com sete dígitos"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 1"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 2"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 3"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 4"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 5"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 6"><input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 7"></div><button class="unlock" id="unlockBtn">Desbloquear</button><div class="status" id="status"></div></div></div>
-  <div id="accessOverlay"><div class="overlay-card"><div class="small">Código validado</div><h2>ACESSO AUTORIZADO</h2></div></div>
-  <main id="site" class="hidden">
+  
+<div id="gate">
+  <div class="roman-lock" aria-hidden="true">
+    <span class="roman-pin pin-one">I</span>
+    <span class="roman-pin pin-two">I</span>
+    <span class="roman-pin pin-three">I</span>
+  </div>
+
+  <div class="gate-wrap">
+    <h1 class="brand">CONVÍVIO</h1>
+    <p class="hint">Sete peças. Sete números.</p>
+
+    <div class="gate-controls">
+      <div class="code-row" id="codeRow" aria-label="Código de acesso com sete dígitos">
+        <input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 1">
+        <input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 2">
+        <input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 3">
+        <input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 4">
+        <input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 5">
+        <input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 6">
+        <input class="digit" inputmode="numeric" maxlength="1" aria-label="Dígito 7">
+      </div>
+      <button class="unlock" id="unlockBtn">Desbloquear</button>
+      <div class="status" id="status"></div>
+    </div>
+  </div>
+</div>
+<div id="accessOverlay"><div class="overlay-card"><div class="small">Código validado</div><h2>ACESSO AUTORIZADO</h2></div></div>
+  <main id="site" class="hidden" style="display:none" aria-hidden="true">
     <section class="reveal numbered" data-no="01">
 <div class="hero-mobile-v12" aria-hidden="true">
   <div class="hm-viana">VIANA</div>
@@ -2090,7 +2359,48 @@
 
   </main>
 <script>
-const ACCESS_CODE="5831947",STORAGE_KEY="convivioIII_access";const gate=document.getElementById("gate"),site=document.getElementById("site"),overlay=document.getElementById("accessOverlay"),statusEl=document.getElementById("status"),inputs=[...document.querySelectorAll(".digit")],unlockBtn=document.getElementById("unlockBtn"),codeRow=document.getElementById("codeRow");const params=new URLSearchParams(window.location.search);if(params.get("reset")==="1"){localStorage.removeItem(STORAGE_KEY);history.replaceState({},"",window.location.pathname)}function showSite(skipOverlay=false){gate.classList.add("hidden");site.classList.remove("hidden");requestAnimationFrame(()=>site.classList.add("visible"));if(!skipOverlay){overlay.classList.add("show");setTimeout(()=>{overlay.classList.remove("show");window.scrollTo({top:0,behavior:"instant"})},1150)}}if(localStorage.getItem(STORAGE_KEY)==="granted"){showSite(true)}else{setTimeout(()=>inputs[0].focus(),300)}inputs.forEach((input,index)=>{input.addEventListener("input",()=>{input.value=input.value.replace(/\D/g,"").slice(0,1);statusEl.textContent="";statusEl.className="status";if(input.value&&index<inputs.length-1)inputs[index+1].focus()});input.addEventListener("keydown",e=>{if(e.key==="Backspace"&&!input.value&&index>0)inputs[index-1].focus();if(e.key==="Enter")validateCode()});input.addEventListener("paste",e=>{const pasted=(e.clipboardData||window.clipboardData).getData("text").replace(/\D/g,"").slice(0,7);if(pasted.length){e.preventDefault();pasted.split("").forEach((n,i)=>{if(inputs[i])inputs[i].value=n});inputs[Math.min(pasted.length,7)-1].focus()}})});function validateCode(){const entered=inputs.map(i=>i.value).join("");if(entered.length!==7){statusEl.textContent="Introduz os sete números.";statusEl.className="status error";codeRow.classList.remove("shake");void codeRow.offsetWidth;codeRow.classList.add("shake");return}if(entered===ACCESS_CODE){localStorage.setItem(STORAGE_KEY,"granted");statusEl.textContent="Acesso autorizado.";statusEl.className="status ok";setTimeout(()=>showSite(false),250)}else{statusEl.textContent="Acesso negado · Código incorreto";statusEl.className="status error";codeRow.classList.remove("shake");void codeRow.offsetWidth;codeRow.classList.add("shake");inputs.forEach(i=>i.value="");inputs[0].focus()}}unlockBtn.addEventListener("click",validateCode);const targetDate=new Date("2026-09-11T00:00:00");function updateCountdown(){let diff=targetDate-new Date();if(diff<=0){["days","hours","minutes","seconds"].forEach(id=>document.getElementById(id).textContent="00");return}const days=Math.floor(diff/86400000);diff%=86400000;const hours=Math.floor(diff/3600000);diff%=3600000;const minutes=Math.floor(diff/60000);diff%=60000;const seconds=Math.floor(diff/1000);document.getElementById("days").textContent=String(days).padStart(2,"0");document.getElementById("hours").textContent=String(hours).padStart(2,"0");document.getElementById("minutes").textContent=String(minutes).padStart(2,"0");document.getElementById("seconds").textContent=String(seconds).padStart(2,"0")}updateCountdown();setInterval(updateCountdown,1000);
+const ACCESS_CODE="5831947",STORAGE_KEY="convivioIII_access";const gate=document.getElementById("gate"),site=document.getElementById("site"),overlay=document.getElementById("accessOverlay"),statusEl=document.getElementById("status"),inputs=[...document.querySelectorAll(".digit")],unlockBtn=document.getElementById("unlockBtn"),codeRow=document.getElementById("codeRow");const params=new URLSearchParams(window.location.search);if(params.get("reset")==="1"){
+  localStorage.removeItem(STORAGE_KEY);
+  document.documentElement.classList.add("locked");
+  if(site){
+    site.classList.add("hidden");
+    site.style.display="none";
+    site.setAttribute("aria-hidden","true");
+  }
+  history.replaceState({},"",window.location.pathname);
+}function showSite(skipAnimation=false){
+  document.documentElement.classList.remove("locked");
+  document.body.classList.remove("locked");
+  document.body.classList.add("unlocked");
+
+  gate.classList.add("hidden");
+  gate.style.display="none";
+
+  site.classList.remove("hidden");
+  site.style.display="block";
+  site.setAttribute("aria-hidden","false");
+
+  window.scrollTo(0,0);
+  document.documentElement.scrollTop=0;
+  document.body.scrollTop=0;
+
+  requestAnimationFrame(()=>{
+    site.classList.add("visible");
+    window.scrollTo(0,0);
+    requestAnimationFrame(()=>window.scrollTo(0,0));
+  });
+
+  setTimeout(()=>window.scrollTo(0,0),80);
+}
+function playUnlockAnimation(){
+  inputs.forEach(i=>i.blur());
+  unlockBtn.disabled=true;
+  gate.classList.add("unlocking");
+  setTimeout(()=>{
+    showSite(true);
+  },1750);
+}
+localStorage.removeItem(STORAGE_KEY); setTimeout(()=>inputs[0].focus(),300)inputs.forEach((input,index)=>{input.addEventListener("input",()=>{input.value=input.value.replace(/\D/g,"").slice(0,1);statusEl.textContent="";statusEl.className="status";if(input.value&&index<inputs.length-1)inputs[index+1].focus()});input.addEventListener("keydown",e=>{if(e.key==="Backspace"&&!input.value&&index>0)inputs[index-1].focus();if(e.key==="Enter")validateCode()});input.addEventListener("paste",e=>{const pasted=(e.clipboardData||window.clipboardData).getData("text").replace(/\D/g,"").slice(0,7);if(pasted.length){e.preventDefault();pasted.split("").forEach((n,i)=>{if(inputs[i])inputs[i].value=n});inputs[Math.min(pasted.length,7)-1].focus()}})});function validateCode(){const entered=inputs.map(i=>i.value).join("");if(entered.length!==7){statusEl.textContent="Introduz os sete números.";statusEl.className="status error";codeRow.classList.remove("shake");void codeRow.offsetWidth;codeRow.classList.add("shake");return}if(entered===ACCESS_CODE){statusEl.textContent="";statusEl.className="status ok";playUnlockAnimation()}else{statusEl.textContent="Acesso negado · Código incorreto";statusEl.className="status error";codeRow.classList.remove("shake");void codeRow.offsetWidth;codeRow.classList.add("shake");inputs.forEach(i=>i.value="");inputs[0].focus()}}unlockBtn.addEventListener("click",validateCode);const targetDate=new Date("2026-09-11T00:00:00");function updateCountdown(){let diff=targetDate-new Date();if(diff<=0){["days","hours","minutes","seconds"].forEach(id=>document.getElementById(id).textContent="00");return}const days=Math.floor(diff/86400000);diff%=86400000;const hours=Math.floor(diff/3600000);diff%=3600000;const minutes=Math.floor(diff/60000);diff%=60000;const seconds=Math.floor(diff/1000);document.getElementById("days").textContent=String(days).padStart(2,"0");document.getElementById("hours").textContent=String(hours).padStart(2,"0");document.getElementById("minutes").textContent=String(minutes).padStart(2,"0");document.getElementById("seconds").textContent=String(seconds).padStart(2,"0")}updateCountdown();setInterval(updateCountdown,1000);
 </script>
 
 <script>
@@ -2258,8 +2568,52 @@ html body .dictators-section .dictators{
 }
 </style>
 
+
+<script id="v20-hardlock-guard">
+document.addEventListener("DOMContentLoaded",()=>{
+  const s=document.getElementById("site");
+  const g=document.getElementById("gate");
+  const granted=localStorage.getItem("convivioIII_access")==="granted";
+  if(!granted){
+    document.documentElement.classList.add("locked");
+    document.body.classList.add("locked");
+    document.body.classList.remove("unlocked");
+    if(s){
+      s.classList.add("hidden");
+      s.style.display="none";
+      s.setAttribute("aria-hidden","true");
+    }
+    if(g){
+      g.classList.remove("hidden");
+      g.style.display="";
+    }
+    window.scrollTo(0,0);
+  }
+});
+</script>
+
+
+<style id="v21-gate-layout-fix">
+body.locked{
+  margin:0!important;
+  overflow:hidden!important;
+}
+body.locked #gate{
+  display:grid!important;
+}
+body.unlocked #gate{
+  display:none!important;
+}
+body.unlocked #site{
+  display:block!important;
+  margin-top:0!important;
+  padding-top:0!important;
+}
+</style>
+
 </body>
 </html>
+
 
 
 
